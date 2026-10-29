@@ -54,6 +54,31 @@ python3 tools/build_matrix.py        # writes references/literature_matrix.csv
 
 The IndPenSim dataset (Mendeley Data V2, CC BY 4.0, DOI 10.17632/pdnjz7zz5x.2) was downloaded on 2026-10-29 after the user explicitly triggered the gated Track B phase. It lives in data/IndPenSim/ (gitignored). Licence and version are documented in references/source_register.md. The community GitHub notebook was used only to learn the data layout.
 
+## Monitoring-to-control prototype (src/)
+
+A second, minimal pipeline (separate from indpenmon/) implements the
+monitoring-to-control research workflow in src/bioreactor_monitoring/:
+
+- config/: YAML configuration, separated from source.
+- src/bioreactor_monitoring/: preprocessing (canonical schema, labels, splits),
+  golden-band monitoring, soft-sensor baselines, the Bajpai-Reuss plant
+  simulator, and rule-based plus constrained-MPC feed control.
+- scripts/(0_run_all|1_inspect_data|2_monitoring|3_soft_sensor|
+  4_monitoring_estimated|6_control_rule_based|7_control_mpc).py: reproducible
+  pipeline steps, each writing results/<phase>/.
+- dashboard/app.py: Streamlit view over the recorded results.
+- tests/: unit tests for config, loader, preprocessing, monitoring, soft
+  sensor, simulator, and MPC.
+
+Quickstart:
+
+```bash
+.venv/bin/pip install -e . streamlit pyarrow
+PYTHONPATH=src .venv/bin/python scripts/1_inspect_data.py   # dataset inspection
+PYTHONPATH=src .venv/bin/python scripts/0_run_all.py        # full pipeline
+.venv/bin/streamlit run dashboard/app.py                    # dashboard
+```
+
 ## Integrity summary
 
 No fabricated citations, results, numbers, equations, data-availability claims or limitations. Candidate gaps are hypotheses until citation chaining confirms them. Simulated benchmark data is never presented as plant data. The architecture is proposed and to be evaluated, never described as validated or safe.

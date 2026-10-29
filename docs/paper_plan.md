@@ -68,16 +68,51 @@ touches any fitting decision.
 
 1. Table: soft-sensor per-model metrics on held-out normal and fault batches,
 with published baselines quoted for context.
+   - Actual (scripts/3): random forest MAE 2.13 g/L, RMSE 3.88, R2 0.85 on
+     normal held-out batches; fault batches MAE 3.09, R2 0.73. Ridge clearly
+     worse. Context: Acosta-Pavas Cubist MAE 1.92, R2 0.908 on their own
+     split; Metcalfe LSTM MAE 2.39-2.68 on deviation batches.
 2. Figure: predicted vs offline penicillin scatter per model.
 3. Table: monitoring oracle vs estimated: detected, lead-over-assay counts,
 median lead, false-alarm rate.
+   - Actual (scripts/2, scripts/4): true trajectory 25/26 detected, 23 with
+     lead, median lead 9.2 h, FAR 4.7%. Estimated trajectory 25/26 detected,
+     21 with lead, median lead 5.0 h, FAR 7.8%, at trajectory MAE 2.58 g/L.
 4. Figure: per-batch deviation traces for representative batches (healthy,
 below-target, fault).
 5. Figure: monitoring degradation from true to estimated trajectory.
 6. Table: control arms (recipe, PI-oracle, PI-noisy, PI-assay, MPC-oracle,
 MPC-noisy, MPC-assay): final P mean and std, feed use, violations.
+   - Actual (scripts/6, scripts/7): see the Phase 6 and Phase 7 reports;
+     headline numbers in the Results summary below.
 7. Figure: final P versus estimator noise sigma for PI and MPC.
 8. Figure: coverage diagram of the full pipeline.
+
+## Results summary (actual runs, 2026-10-29)
+
+Monitoring (26 below-target held-out batches):
+- Oracle trajectory: 23/26 with early-warning lead over the delayed assay
+  stream, median 9.2 h, false-alarm rate 4.7 %.
+- Random-forest-estimated trajectory (MAE 2.58 g/L): 21/26 with lead,
+  median lead 5.0 h, false-alarm rate 7.8 %.
+
+Control (matched seeds, 5 seeds per arm, Bajpai-Reuss plant):
+- Rule-based substrate-PI with oracle or noisy estimator feedback: final P
+  6.0 to 7.4 g/L; with delayed-assay feedback the batch collapses (0.01 g/L).
+- Constrained MPC: final P 8.5 to 10.6 g/L across the same sensing layers,
+  including the delayed-assay arm (9.7 g/L), because the model propagates
+  state between sparse updates.
+- Tuned constant-feed recipe: 10.9 g/L.
+- Final P is only modestly sensitive to estimator noise over a 100x range for
+  both controllers; per-seed process-disturbance variance dominates.
+
+Headline conclusions:
+1. Soft-sensor point accuracy strongly affects monitoring early-warning ability
+   (H2), even when it weakly affects control outcome (H3).
+2. Delayed off-line feedback is catastrophic for a pure measurement-feedback
+   loop but not for a model-based controller.
+3. A well-tuned conventional recipe is hard to beat at one operating point:
+   simplicity wins, consistent with earlier findings.
 
 ## Discussion and limitations
 
