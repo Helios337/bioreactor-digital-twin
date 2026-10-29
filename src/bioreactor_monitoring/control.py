@@ -164,6 +164,7 @@ class NonLinearMPC:
             measurement.P if measurement.P is not None else y_true[2],
             measurement.V if measurement.V is not None else y_true[3],
         ], dtype=float)
+        state = np.maximum(np.nan_to_num(state, nan=1e-6, posinf=1e6), 0.0)
         dt = self.dt_h
 
         def rollout(u: np.ndarray) -> np.ndarray:
@@ -178,6 +179,8 @@ class NonLinearMPC:
 
         def cost(u: np.ndarray) -> float:
             steps = rollout(u)
+            if not np.all(np.isfinite(steps)):
+                return 1e12
             s_trajectory = steps[:, 1]
             v_trajectory = steps[:, 3]
             j = self.wS * np.sum((s_trajectory - self.Sref) ** 2)
@@ -191,6 +194,8 @@ class NonLinearMPC:
         res = minimize(cost, x0, method="SLSQP", bounds=bounds,
                        options={"maxiter": 100, "ftol": 1e-9})
         u = np.clip(res.x, 0.0, self.Fmax)
+        if not np.all(np.isfinite(u)):
+            u = np.full(self.N, 0.05)
         self._last_u = u
         return float(u[0])
 

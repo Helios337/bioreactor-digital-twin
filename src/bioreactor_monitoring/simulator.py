@@ -61,8 +61,8 @@ def rhs(t: float, y: np.ndarray, params: BajpaiReussParams,
     X, S, P, V = y
     V = max(V, 1e-6)
     S_eff = max(S, 0.0)
-    mu = params.mu_max * S_eff / (params.Kx * X + S_eff)
-    pi = params.pi_max * S_eff / (params.Kp + S_eff * (1.0 + S_eff / params.Ki))
+    mu = params.mu_max * S_eff / (params.Kx * X + S_eff + 1e-12)
+    pi = params.pi_max * S_eff / (params.Kp + S_eff * (1.0 + S_eff / params.Ki) + 1e-12)
     # Substrate consumption scales with available substrate, so it vanishes
     # when the substrate is exhausted and can never drive S below zero.
     cons = S_eff / (S_eff + 1e-3)
@@ -113,6 +113,10 @@ def simulate(policy, params: BajpaiReussParams, tf_h: float = 220.0,
         )
         t_end = float(sol.t[-1])
         y_end = sol.y[:, -1].copy()
+        if not np.all(np.isfinite(y_end)):
+            raise FloatingPointError(
+                f"non-finite plant state at t={t_end:.1f} under feed {feed:.4f}; "
+                "last finite state " + str(np.round(states[-1], 6)))
         if process_sigma > 0:
             y_end = y_end + rng.normal(0.0, process_sigma * np.abs(y_end))
             y_end = np.maximum(y_end, 0.0)
