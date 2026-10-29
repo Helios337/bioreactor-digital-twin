@@ -74,3 +74,20 @@ def test_fit_predict_rejects_unknown_model():
         raise AssertionError("expected ValueError")
     except ValueError:
         pass
+
+
+def test_predict_trajectories_covers_all_training_rows():
+    from bioreactor_monitoring.preprocess import P_OFFLINE
+    from bioreactor_monitoring.softsensor import predict_trajectories
+
+    df = _synthetic(n_batches=8, seed=1)
+    train = df[df["batch"] <= 5]
+    eval_df = df[df["batch"] > 5]
+    out = predict_trajectories(train, eval_df, ["feed_rate_l_h", "temperature_k"],
+                               "ridge", seed=0, oof_folds=3)
+    assert out["p_est"].notna().all()          # no unfilled rows
+    tr_out = out[out["batch"].isin(train["batch"].unique())]
+    ev_out = out[out["batch"].isin(eval_df["batch"].unique())]
+    assert len(tr_out) == len(train)            # every training row covered
+    assert len(ev_out) == len(eval_df)
+    assert out[P_OFFLINE].isna().sum() == (len(train) + len(eval_df) - int(df[P_OFFLINE].notna().sum()))

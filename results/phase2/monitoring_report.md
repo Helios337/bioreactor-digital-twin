@@ -4,7 +4,7 @@
 - Below-target batches: 26
 - Detected by the 12 min monitor: 25
 - With lead over the delayed assay stream: 23
-- Median lead time (h): 8.8
-- Mean lead time (h): 3.1
+- Median lead time (h): 9.2
+- Mean lead time (h): 3.5
 - False-alarm rate on healthy batches: 0.047
 - Healthy batches: 64

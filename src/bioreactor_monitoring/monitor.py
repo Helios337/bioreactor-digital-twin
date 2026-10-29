@@ -65,16 +65,18 @@ def build_golden_bands(train_batches: pd.DataFrame, variables: list[str],
 
 
 def deviation_series(batch_df: pd.DataFrame, bands: dict, variables: list[str] | None = None,
-                     time_col: str = "time_h", eps: float = 1e-9) -> pd.DataFrame:
+                     time_col: str = "time_h", eps: float = 1e-9,
+                     std_rel_floor: float = 0.02, std_abs_floor: float = 0.05) -> pd.DataFrame:
     """Per-variable deviation of a batch vs the golden bands.
 
     Two scalings are provided.
 
     ``zscore`` is the dimensionless standardized deviation of each variable at
-    each time point, (x - mean) / (k * std), clipped at zero. The aggregate
-    columns ``z_mean`` and ``z_max`` are the mean and the maximum across
-    variables. This scaling is robust to variables whose mean is near zero,
-    where relative percentage scores diverge.
+    each time point, (x - mean) / (k * std), clipped at zero in sign. The
+    aggregate columns ``z_mean`` and ``z_max`` are the mean and the maximum
+    across variables. The standard deviation is floored by a relative fraction
+    of the absolute mean plus an absolute floor, so that variables at the
+    physical zero of their range do not produce infinitesimal denominators.
 
     ``deviation_pct`` is the symmetric mean absolute percentage deviation for
     interpretive reporting and is floored by ``eps`` to avoid division blow-up.
@@ -85,7 +87,8 @@ def deviation_series(batch_df: pd.DataFrame, bands: dict, variables: list[str] |
     grid = bands["grid"]
     variables = list(variables or bands["variables"])
     means = bands["mean"]
-    std_based = np.maximum((bands["upper"] - bands["lower"]) / 2.0, eps)
+    std_raw = np.maximum((bands["upper"] - bands["lower"]) / 2.0, eps)
+    std_based = np.maximum(std_raw, std_rel_floor * np.abs(means) + std_abs_floor)
     out: dict[str, np.ndarray] = {"time_h": grid}
     z_all: list[np.ndarray] = []
     pct_all: list[np.ndarray] = []

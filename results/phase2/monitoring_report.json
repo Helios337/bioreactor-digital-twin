@@ -10,8 +10,8 @@
   "n_below_target_batches": 26,
   "n_below_target_detected_by_monitor": 25,
   "n_below_target_with_lead_over_assay": 23,
-  "median_lead_h": 8.8,
-  "mean_lead_h": 3.1,
+  "median_lead_h": 9.2,
+  "mean_lead_h": 3.5,
   "false_alarm_rate_on_healthy_batches": 0.047,
   "n_healthy_batches": 64,
   "note": "Lead time is the difference between the first below-band crossing of the true 12 min trajectory and the identical rule applied to the delayed 12 h assay stream. The sustained-alarm rule is used for the false-alarm assessment.",
@@ -23,7 +23,7 @@
       "below_target": 0,
       "monitor_first_alarm_h": NaN,
       "monitor_sustained_alarms": 0,
-      "assay_alarm_h": 5.0,
+      "assay_alarm_h": 40.0,
       "lead_h": NaN
     },
     {
@@ -101,10 +101,10 @@
       "regime": "recipe",
       "fault": 0,
       "below_target": 1,
-      "monitor_first_alarm_h": 24.2,
+      "monitor_first_alarm_h": 25.0,
       "monitor_sustained_alarms": 2,
       "assay_alarm_h": 40.0,
-      "lead_h": 15.8
+      "lead_h": 15.0
     },
     {
       "batch": 10,
@@ -121,10 +121,10 @@
       "regime": "recipe",
       "fault": 0,
       "below_target": 0,
-      "monitor_first_alarm_h": 0.6,
+      "monitor_first_alarm_h": NaN,
       "monitor_sustained_alarms": 0,
-      "assay_alarm_h": 5.0,
-      "lead_h": 4.4
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
     },
     {
       "batch": 12,
@@ -213,7 +213,7 @@
       "below_target": 0,
       "monitor_first_alarm_h": NaN,
       "monitor_sustained_alarms": 0,
-      "assay_alarm_h": 5.0,
+      "assay_alarm_h": NaN,
       "lead_h": NaN
     },
     {
@@ -281,10 +281,10 @@
       "regime": "recipe",
       "fault": 0,
       "below_target": 0,
-      "monitor_first_alarm_h": 10.8,
+      "monitor_first_alarm_h": 90.4,
       "monitor_sustained_alarms": 1,
       "assay_alarm_h": 100.0,
-      "lead_h": 89.2
+      "lead_h": 9.6
     },
     {
       "batch": 28,
@@ -521,10 +521,10 @@
       "regime": "operator",
       "fault": 0,
       "below_target": 1,
-      "monitor_first_alarm_h": 0.2,
+      "monitor_first_alarm_h": 125.6,
       "monitor_sustained_alarms": 1,
-      "assay_alarm_h": 5.0,
-      "lead_h": 4.8
+      "assay_alarm_h": 136.0,
+      "lead_h": 10.4
     },
     {
       "batch": 52,
@@ -551,10 +551,10 @@
       "regime": "operator",
       "fault": 0,
       "below_target": 1,
-      "monitor_first_alarm_h": 0.2,
+      "monitor_first_alarm_h": 196.4,
       "monitor_sustained_alarms": 1,
-      "assay_alarm_h": 5.0,
-      "lead_h": 4.8
+      "assay_alarm_h": 208.0,
+      "lead_h": 11.6
     },
     {
       "batch": 55,
@@ -571,10 +571,10 @@
       "regime": "operator",
       "fault": 0,
       "below_target": 0,
-      "monitor_first_alarm_h": 0.2,
+      "monitor_first_alarm_h": NaN,
       "monitor_sustained_alarms": 0,
-      "assay_alarm_h": 5.0,
-      "lead_h": 4.8
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
     },
     {
       "batch": 57,
@@ -851,10 +851,10 @@
       "regime": "apc",
       "fault": 0,
       "below_target": 0,
-      "monitor_first_alarm_h": 0.2,
+      "monitor_first_alarm_h": NaN,
       "monitor_sustained_alarms": 0,
-      "assay_alarm_h": 5.0,
-      "lead_h": 4.8
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
     },
     {
       "batch": 85,
@@ -871,10 +871,10 @@
       "regime": "apc",
       "fault": 0,
       "below_target": 0,
-      "monitor_first_alarm_h": 0.2,
+      "monitor_first_alarm_h": NaN,
       "monitor_sustained_alarms": 0,
-      "assay_alarm_h": 5.0,
-      "lead_h": 4.8
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
     },
     {
       "batch": 87,

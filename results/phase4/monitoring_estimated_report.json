@@ -1,0 +1,931 @@
+{
+  "config": {
+    "seed": 42,
+    "model": "random_forest",
+    "k": 3.0,
+    "z_threshold": 1.0,
+    "min_duration_h": 2.0,
+    "smooth_h": 1.0,
+    "assay_delay_h": 4.0
+  },
+  "trajectory_estimation_error_heldout": {
+    "mae_g_l": 2.58,
+    "rmse_g_l": 4.178,
+    "r2": 0.806,
+    "note": "Smoothed estimated vs true trajectory on held-out batches, fed-batch scale 0 to about 36 g/L."
+  },
+  "oracle_comparison": {
+    "true_trajectory_detected": 25,
+    "true_trajectory_with_lead": 23,
+    "true_trajectory_median_lead_h": 9.2,
+    "true_trajectory_far_healthy": 0.047
+  },
+  "n_below_target_batches": 26,
+  "n_below_target_detected": 21,
+  "n_below_target_with_lead_over_assay": 11,
+  "median_lead_h": 5.0,
+  "false_alarm_rate_on_healthy_batches": 0.078,
+  "n_healthy_batches": 64,
+  "per_batch": [
+    {
+      "batch": 1,
+      "regime": "recipe",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": 40.0,
+      "lead_h": NaN
+    },
+    {
+      "batch": 2,
+      "regime": "recipe",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 3,
+      "regime": "recipe",
+      "fault": 0,
+      "below_target": 1,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": 244.0,
+      "lead_h": NaN
+    },
+    {
+      "batch": 4,
+      "regime": "recipe",
+      "fault": 0,
+      "below_target": 1,
+      "monitor_first_alarm_h": 179.0,
+      "monitor_sustained_alarms": 3,
+      "assay_alarm_h": 184.0,
+      "lead_h": 5.0
+    },
+    {
+      "batch": 5,
+      "regime": "recipe",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 6,
+      "regime": "recipe",
+      "fault": 0,
+      "below_target": 1,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": 172.0,
+      "lead_h": NaN
+    },
+    {
+      "batch": 7,
+      "regime": "recipe",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 8,
+      "regime": "recipe",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 9,
+      "regime": "recipe",
+      "fault": 0,
+      "below_target": 1,
+      "monitor_first_alarm_h": 30.8,
+      "monitor_sustained_alarms": 2,
+      "assay_alarm_h": 40.0,
+      "lead_h": 9.2
+    },
+    {
+      "batch": 10,
+      "regime": "recipe",
+      "fault": 0,
+      "below_target": 1,
+      "monitor_first_alarm_h": 186.0,
+      "monitor_sustained_alarms": 1,
+      "assay_alarm_h": 184.0,
+      "lead_h": -2.0
+    },
+    {
+      "batch": 11,
+      "regime": "recipe",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 12,
+      "regime": "recipe",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": 211.8,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 13,
+      "regime": "recipe",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 14,
+      "regime": "recipe",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 15,
+      "regime": "recipe",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 16,
+      "regime": "recipe",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 17,
+      "regime": "recipe",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 18,
+      "regime": "recipe",
+      "fault": 0,
+      "below_target": 1,
+      "monitor_first_alarm_h": 70.8,
+      "monitor_sustained_alarms": 3,
+      "assay_alarm_h": 112.0,
+      "lead_h": 41.2
+    },
+    {
+      "batch": 19,
+      "regime": "recipe",
+      "fault": 0,
+      "below_target": 1,
+      "monitor_first_alarm_h": 125.0,
+      "monitor_sustained_alarms": 2,
+      "assay_alarm_h": 196.0,
+      "lead_h": 71.0
+    },
+    {
+      "batch": 20,
+      "regime": "recipe",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": 30.8,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 21,
+      "regime": "recipe",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": 199.4,
+      "monitor_sustained_alarms": 1,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 22,
+      "regime": "recipe",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": 46.8,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 23,
+      "regime": "recipe",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 24,
+      "regime": "recipe",
+      "fault": 0,
+      "below_target": 1,
+      "monitor_first_alarm_h": 104.2,
+      "monitor_sustained_alarms": 1,
+      "assay_alarm_h": 184.0,
+      "lead_h": 79.8
+    },
+    {
+      "batch": 25,
+      "regime": "recipe",
+      "fault": 0,
+      "below_target": 1,
+      "monitor_first_alarm_h": 170.2,
+      "monitor_sustained_alarms": 2,
+      "assay_alarm_h": 40.0,
+      "lead_h": -130.2
+    },
+    {
+      "batch": 26,
+      "regime": "recipe",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 27,
+      "regime": "recipe",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": 100.0,
+      "lead_h": NaN
+    },
+    {
+      "batch": 28,
+      "regime": "recipe",
+      "fault": 0,
+      "below_target": 1,
+      "monitor_first_alarm_h": 201.0,
+      "monitor_sustained_alarms": 1,
+      "assay_alarm_h": 208.0,
+      "lead_h": 7.0
+    },
+    {
+      "batch": 29,
+      "regime": "recipe",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 30,
+      "regime": "recipe",
+      "fault": 0,
+      "below_target": 1,
+      "monitor_first_alarm_h": 151.8,
+      "monitor_sustained_alarms": 3,
+      "assay_alarm_h": 148.0,
+      "lead_h": -3.8
+    },
+    {
+      "batch": 31,
+      "regime": "operator",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 32,
+      "regime": "operator",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 33,
+      "regime": "operator",
+      "fault": 0,
+      "below_target": 1,
+      "monitor_first_alarm_h": 171.2,
+      "monitor_sustained_alarms": 5,
+      "assay_alarm_h": 196.0,
+      "lead_h": 24.8
+    },
+    {
+      "batch": 34,
+      "regime": "operator",
+      "fault": 0,
+      "below_target": 1,
+      "monitor_first_alarm_h": 192.0,
+      "monitor_sustained_alarms": 1,
+      "assay_alarm_h": 172.0,
+      "lead_h": -20.0
+    },
+    {
+      "batch": 35,
+      "regime": "operator",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 36,
+      "regime": "operator",
+      "fault": 0,
+      "below_target": 1,
+      "monitor_first_alarm_h": 109.6,
+      "monitor_sustained_alarms": 2,
+      "assay_alarm_h": 172.0,
+      "lead_h": 62.4
+    },
+    {
+      "batch": 37,
+      "regime": "operator",
+      "fault": 0,
+      "below_target": 1,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": 196.0,
+      "lead_h": NaN
+    },
+    {
+      "batch": 38,
+      "regime": "operator",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 39,
+      "regime": "operator",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 40,
+      "regime": "operator",
+      "fault": 0,
+      "below_target": 1,
+      "monitor_first_alarm_h": 194.2,
+      "monitor_sustained_alarms": 1,
+      "assay_alarm_h": 184.0,
+      "lead_h": -10.2
+    },
+    {
+      "batch": 41,
+      "regime": "operator",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": 40.0,
+      "lead_h": NaN
+    },
+    {
+      "batch": 42,
+      "regime": "operator",
+      "fault": 0,
+      "below_target": 1,
+      "monitor_first_alarm_h": 193.6,
+      "monitor_sustained_alarms": 1,
+      "assay_alarm_h": 136.0,
+      "lead_h": -57.6
+    },
+    {
+      "batch": 43,
+      "regime": "operator",
+      "fault": 0,
+      "below_target": 1,
+      "monitor_first_alarm_h": 221.8,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": 160.0,
+      "lead_h": -61.8
+    },
+    {
+      "batch": 44,
+      "regime": "operator",
+      "fault": 0,
+      "below_target": 1,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": 160.0,
+      "lead_h": NaN
+    },
+    {
+      "batch": 45,
+      "regime": "operator",
+      "fault": 0,
+      "below_target": 1,
+      "monitor_first_alarm_h": 151.6,
+      "monitor_sustained_alarms": 5,
+      "assay_alarm_h": 76.0,
+      "lead_h": -75.6
+    },
+    {
+      "batch": 46,
+      "regime": "operator",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 47,
+      "regime": "operator",
+      "fault": 0,
+      "below_target": 1,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": 208.0,
+      "lead_h": NaN
+    },
+    {
+      "batch": 48,
+      "regime": "operator",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 49,
+      "regime": "operator",
+      "fault": 0,
+      "below_target": 1,
+      "monitor_first_alarm_h": 171.4,
+      "monitor_sustained_alarms": 3,
+      "assay_alarm_h": 196.0,
+      "lead_h": 24.6
+    },
+    {
+      "batch": 50,
+      "regime": "operator",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 51,
+      "regime": "operator",
+      "fault": 0,
+      "below_target": 1,
+      "monitor_first_alarm_h": 160.0,
+      "monitor_sustained_alarms": 3,
+      "assay_alarm_h": 136.0,
+      "lead_h": -24.0
+    },
+    {
+      "batch": 52,
+      "regime": "operator",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 53,
+      "regime": "operator",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 54,
+      "regime": "operator",
+      "fault": 0,
+      "below_target": 1,
+      "monitor_first_alarm_h": 194.4,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": 208.0,
+      "lead_h": 13.6
+    },
+    {
+      "batch": 55,
+      "regime": "operator",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 56,
+      "regime": "operator",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": 46.4,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 57,
+      "regime": "operator",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 58,
+      "regime": "operator",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": 148.0,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 59,
+      "regime": "operator",
+      "fault": 0,
+      "below_target": 1,
+      "monitor_first_alarm_h": 191.4,
+      "monitor_sustained_alarms": 1,
+      "assay_alarm_h": 184.0,
+      "lead_h": -7.4
+    },
+    {
+      "batch": 60,
+      "regime": "operator",
+      "fault": 0,
+      "below_target": 1,
+      "monitor_first_alarm_h": 193.4,
+      "monitor_sustained_alarms": 1,
+      "assay_alarm_h": 208.0,
+      "lead_h": 14.6
+    },
+    {
+      "batch": 61,
+      "regime": "apc",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 62,
+      "regime": "apc",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 63,
+      "regime": "apc",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": 171.8,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 64,
+      "regime": "apc",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 65,
+      "regime": "apc",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 66,
+      "regime": "apc",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": 52.0,
+      "lead_h": NaN
+    },
+    {
+      "batch": 67,
+      "regime": "apc",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": 119.0,
+      "monitor_sustained_alarms": 5,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 68,
+      "regime": "apc",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 69,
+      "regime": "apc",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 70,
+      "regime": "apc",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 71,
+      "regime": "apc",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 72,
+      "regime": "apc",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 73,
+      "regime": "apc",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": 222.6,
+      "monitor_sustained_alarms": 1,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 74,
+      "regime": "apc",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 75,
+      "regime": "apc",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": 30.6,
+      "monitor_sustained_alarms": 2,
+      "assay_alarm_h": 40.0,
+      "lead_h": 9.4
+    },
+    {
+      "batch": 76,
+      "regime": "apc",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 77,
+      "regime": "apc",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 78,
+      "regime": "apc",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": 192.0,
+      "monitor_sustained_alarms": 1,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 79,
+      "regime": "apc",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 80,
+      "regime": "apc",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": 196.2,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 81,
+      "regime": "apc",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 82,
+      "regime": "apc",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 83,
+      "regime": "apc",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 84,
+      "regime": "apc",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 85,
+      "regime": "apc",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 86,
+      "regime": "apc",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 87,
+      "regime": "apc",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 88,
+      "regime": "apc",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 89,
+      "regime": "apc",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    },
+    {
+      "batch": 90,
+      "regime": "apc",
+      "fault": 0,
+      "below_target": 0,
+      "monitor_first_alarm_h": NaN,
+      "monitor_sustained_alarms": 0,
+      "assay_alarm_h": NaN,
+      "lead_h": NaN
+    }
+  ]
+}

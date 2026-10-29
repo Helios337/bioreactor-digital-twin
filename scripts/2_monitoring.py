@@ -50,7 +50,8 @@ def assay_baseline_alarm_time(batch_df: pd.DataFrame, bands: dict,
     assay below the lower band is the baseline detection time.
     """
     m = bands["mean"][:, 0]
-    s = (bands["upper"][:, 0] - bands["lower"][:, 0]) / 2.0
+    s_raw = (bands["upper"][:, 0] - bands["lower"][:, 0]) / 2.0
+    s = np.maximum(s_raw, 0.02 * np.abs(m) + 0.05)
     grid = bands["grid"]
     rows = batch_df[(batch_df[P_OFFLINE].notna())]
     if rows.empty:
