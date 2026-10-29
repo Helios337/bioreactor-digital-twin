@@ -25,6 +25,7 @@ Track B (gated): an end-to-end empirical monitoring prototype on the IndPenSim b
 
 - references/: source_register.md, references.bib, literature_matrix.csv, metadata_raw.json, abstracts.json.
 - review/: scope_and_questions.md, search_protocol.md, screening_log.csv, synthesis_notes.md, paper_outline.md.
+- report/: project_report.md (professor-facing project report with full citations).
 - manuscript/: draft.md.
 - figures/: proposed_architecture.mmd.
 - tools/: verify_references.py, build_bib.py, build_matrix.py.
