@@ -31,6 +31,8 @@ softsensor:
 
 monitoring:
   golden_band_k: 3.0
+  deviation_threshold_pct: 30.0
+  deviation_z_threshold: 1.0
   min_alarm_duration_h: 2.0
   deviation_metric: "smape"
 

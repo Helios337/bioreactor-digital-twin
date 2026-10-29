@@ -86,6 +86,19 @@ def test_split_batches_excludes_deviation_set():
     assert all(v >= 1 for v in regs.values())
 
 
+def test_split_batches_stratified_by_label():
+    labels = {b: 1 if b in (4, 11, 21, 34, 44, 67, 78, 88, 89, 90, 5, 6, 7) else 0
+              for b in range(1, 101)}
+    train, other = split_batches(np.arange(1, 101), seed=3, test_fraction=0.25,
+                                 labels=labels)
+    test_normal = [b for b in other if b <= 90]
+    train_set = set(int(b) for b in train)
+    # at least one labelled batch per regime should land in the test set
+    for lo, hi, reg in ((1, 30, "recipe"), (31, 60, "operator"), (61, 90, "apc")):
+        labelled_in_regime = [b for b in range(lo, hi + 1) if labels[b] == 1]
+        assert any(b in test_normal for b in labelled_in_regime), reg
+
+
 def test_split_batches_deterministic():
     a, _ = split_batches(np.arange(1, 101), seed=7, test_fraction=0.2)
     b, _ = split_batches(np.arange(1, 101), seed=7, test_fraction=0.2)

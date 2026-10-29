@@ -187,27 +187,34 @@ def assay_available(assay_times: np.ndarray, assay_values: np.ndarray, query_tim
     return values, ages
 
 
-def split_batches(batch_ids: np.ndarray, seed: int, test_fraction: float) -> tuple[np.ndarray, np.ndarray]:
-    """Deterministic stratified-by-regime split of batch ids into train and test.
+def split_batches(batch_ids: np.ndarray, seed: int, test_fraction: float,
+                  labels: dict[int, int] | None = None) -> tuple[np.ndarray, np.ndarray]:
+    """Deterministic split of batch ids into train and test.
 
-    Batches 91 to 100 are excluded and returned separately as the deviation
-    set, because faults are the deviation evaluation set, not normal-operation
-    training data.
+    Stratifies by control regime and, when ``labels`` (batch to 0/1 flag) is
+    given, by the label within each regime, so that rare labels are represented
+    in the test set. Batches 91 to 100 are excluded from training and returned
+    with the test set as the deviation evaluation set.
     """
     rng = np.random.default_rng(seed)
     normal = np.array(sorted(set(int(b) for b in batch_ids) - set(range(91, 101))))
     dev = np.array(sorted(set(range(91, 101)) & set(int(b) for b in batch_ids)))
-    regimes = np.array([
-        "recipe" if b <= 30 else "operator" if b <= 60 else "apc" for b in normal
-    ])
+
+    def regime_of(b: int) -> str:
+        return "recipe" if b <= 30 else "operator" if b <= 60 else "apc"
+
+    strata: dict[tuple[str, int], list[int]] = {}
+    for b in normal:
+        lab = 0 if labels is None else int(labels.get(int(b), 0))
+        strata.setdefault((regime_of(b), lab), []).append(int(b))
+
     test_idx: list[int] = []
-    for reg in ("recipe", "operator", "apc"):
-        members = np.where(regimes == reg)[0]
+    for key, members in strata.items():
         rng.shuffle(members)
         n_test = max(1, round(len(members) * test_fraction))
-        test_idx.extend(members[:n_test].tolist())
-    test = np.array(sorted(int(normal[i]) for i in test_idx))
-    train = np.array(sorted(int(b) for b in normal if b not in test))
+        test_idx.extend(members[:n_test])
+    test = np.array(sorted(test_idx))
+    train = np.array(sorted(set(int(b) for b in normal) - set(int(b) for b in test)))
     return train, np.concatenate([test, dev])
 
 

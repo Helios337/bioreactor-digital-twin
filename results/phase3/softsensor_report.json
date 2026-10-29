@@ -1,0 +1,353 @@
+{
+  "features": [
+    "feed_rate_l_h",
+    "agitator_rpm",
+    "temperature_k",
+    "ph",
+    "do2_mg_l",
+    "volume_l",
+    "co2_out_pct",
+    "o2_out_pct"
+  ],
+  "seed": 42,
+  "train_batch_count": 72,
+  "test_and_dev_batch_count": 28,
+  "results": {
+    "ridge": {
+      "pooled": {
+        "mae": 4.625451762189085,
+        "rmse": 6.824224336731636,
+        "r2": 0.5161480225888815
+      },
+      "normal_test": {
+        "mae": 4.240947627337619,
+        "rmse": 6.004185171524626,
+        "r2": 0.6465729796630083
+      },
+      "fault_test": {
+        "mae": 5.29648542060775,
+        "rmse": 8.057860059419449,
+        "r2": 0.14474197678570566
+      },
+      "per_batch": [
+        {
+          "batch": 3,
+          "mae": 4.463,
+          "rmse": 5.37
+        },
+        {
+          "batch": 13,
+          "mae": 3.595,
+          "rmse": 5.37
+        },
+        {
+          "batch": 15,
+          "mae": 6.317,
+          "rmse": 6.827
+        },
+        {
+          "batch": 22,
+          "mae": 4.322,
+          "rmse": 4.808
+        },
+        {
+          "batch": 27,
+          "mae": 3.03,
+          "rmse": 3.548
+        },
+        {
+          "batch": 30,
+          "mae": 2.465,
+          "rmse": 3.018
+        },
+        {
+          "batch": 35,
+          "mae": 1.705,
+          "rmse": 2.116
+        },
+        {
+          "batch": 43,
+          "mae": 2.327,
+          "rmse": 2.852
+        },
+        {
+          "batch": 44,
+          "mae": 15.478,
+          "rmse": 16.334
+        },
+        {
+          "batch": 46,
+          "mae": 3.446,
+          "rmse": 5.058
+        },
+        {
+          "batch": 49,
+          "mae": 2.474,
+          "rmse": 2.814
+        },
+        {
+          "batch": 55,
+          "mae": 4.045,
+          "rmse": 5.199
+        },
+        {
+          "batch": 63,
+          "mae": 3.926,
+          "rmse": 5.753
+        },
+        {
+          "batch": 65,
+          "mae": 3.363,
+          "rmse": 4.042
+        },
+        {
+          "batch": 67,
+          "mae": 3.272,
+          "rmse": 3.67
+        },
+        {
+          "batch": 69,
+          "mae": 2.417,
+          "rmse": 2.875
+        },
+        {
+          "batch": 74,
+          "mae": 5.625,
+          "rmse": 7.505
+        },
+        {
+          "batch": 86,
+          "mae": 3.509,
+          "rmse": 4.486
+        },
+        {
+          "batch": 91,
+          "mae": 6.715,
+          "rmse": 7.04
+        },
+        {
+          "batch": 92,
+          "mae": 1.618,
+          "rmse": 2.189
+        },
+        {
+          "batch": 93,
+          "mae": 4.04,
+          "rmse": 5.109
+        },
+        {
+          "batch": 94,
+          "mae": 7.036,
+          "rmse": 10.979
+        },
+        {
+          "batch": 95,
+          "mae": 2.73,
+          "rmse": 3.298
+        },
+        {
+          "batch": 96,
+          "mae": 2.867,
+          "rmse": 3.216
+        },
+        {
+          "batch": 97,
+          "mae": 2.198,
+          "rmse": 2.522
+        },
+        {
+          "batch": 98,
+          "mae": 4.602,
+          "rmse": 6.616
+        },
+        {
+          "batch": 99,
+          "mae": 7.688,
+          "rmse": 10.821
+        },
+        {
+          "batch": 100,
+          "mae": 12.71,
+          "rmse": 15.723
+        }
+      ]
+    },
+    "random_forest": {
+      "pooled": {
+        "mae": 2.480003958907341,
+        "rmse": 4.133280997068588,
+        "r2": 0.8225010482545688
+      },
+      "normal_test": {
+        "mae": 2.1293191570886285,
+        "rmse": 3.8752497026199166,
+        "r2": 0.8527718085283162
+      },
+      "fault_test": {
+        "mae": 3.0920163774659595,
+        "rmse": 4.548666523050178,
+        "r2": 0.7274627229278703
+      },
+      "per_batch": [
+        {
+          "batch": 3,
+          "mae": 3.005,
+          "rmse": 4.898
+        },
+        {
+          "batch": 13,
+          "mae": 1.607,
+          "rmse": 2.331
+        },
+        {
+          "batch": 15,
+          "mae": 2.284,
+          "rmse": 4.828
+        },
+        {
+          "batch": 22,
+          "mae": 1.88,
+          "rmse": 2.733
+        },
+        {
+          "batch": 27,
+          "mae": 1.622,
+          "rmse": 2.256
+        },
+        {
+          "batch": 30,
+          "mae": 1.357,
+          "rmse": 2.243
+        },
+        {
+          "batch": 35,
+          "mae": 0.649,
+          "rmse": 0.958
+        },
+        {
+          "batch": 43,
+          "mae": 3.147,
+          "rmse": 4.26
+        },
+        {
+          "batch": 44,
+          "mae": 6.986,
+          "rmse": 9.673
+        },
+        {
+          "batch": 46,
+          "mae": 3.271,
+          "rmse": 5.405
+        },
+        {
+          "batch": 49,
+          "mae": 2.07,
+          "rmse": 3.855
+        },
+        {
+          "batch": 55,
+          "mae": 1.588,
+          "rmse": 2.567
+        },
+        {
+          "batch": 63,
+          "mae": 1.662,
+          "rmse": 3.241
+        },
+        {
+          "batch": 65,
+          "mae": 1.267,
+          "rmse": 1.831
+        },
+        {
+          "batch": 67,
+          "mae": 1.236,
+          "rmse": 1.792
+        },
+        {
+          "batch": 69,
+          "mae": 0.773,
+          "rmse": 1.162
+        },
+        {
+          "batch": 74,
+          "mae": 2.236,
+          "rmse": 2.824
+        },
+        {
+          "batch": 86,
+          "mae": 0.895,
+          "rmse": 1.364
+        },
+        {
+          "batch": 91,
+          "mae": 4.067,
+          "rmse": 5.116
+        },
+        {
+          "batch": 92,
+          "mae": 0.658,
+          "rmse": 0.989
+        },
+        {
+          "batch": 93,
+          "mae": 2.999,
+          "rmse": 4.224
+        },
+        {
+          "batch": 94,
+          "mae": 3.53,
+          "rmse": 4.785
+        },
+        {
+          "batch": 95,
+          "mae": 2.961,
+          "rmse": 3.971
+        },
+        {
+          "batch": 96,
+          "mae": 1.907,
+          "rmse": 3.374
+        },
+        {
+          "batch": 97,
+          "mae": 2.438,
+          "rmse": 2.943
+        },
+        {
+          "batch": 98,
+          "mae": 2.178,
+          "rmse": 3.67
+        },
+        {
+          "batch": 99,
+          "mae": 3.305,
+          "rmse": 4.526
+        },
+        {
+          "batch": 100,
+          "mae": 6.722,
+          "rmse": 8.212
+        }
+      ]
+    }
+  },
+  "published_baselines": {
+    "acosta_pavas_2024_cubist": {
+      "source": "Computers and Chemical Engineering 187:108736",
+      "r2": 0.908,
+      "rmse": 3.149,
+      "mae": 1.92,
+      "note": "Reported on their own IndPenSim split; not directly comparable to ours."
+    },
+    "metcalfe_2025_lstm_deviation_batches": {
+      "source": "Computers and Chemical Engineering 194:108991",
+      "mae_range_g_l": [
+        2.39,
+        2.68
+      ],
+      "note": "MAE on deviation batches 94, 99, 100 for an 8 h forecast."
+    }
+  },
+  "comparability_note": "Model numbers are only comparable on identical data partitions; published splits differ."
+}
