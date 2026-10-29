@@ -4,6 +4,8 @@ Working title: From Prediction to Trustworthy Closed-Loop Control: A Fault-Aware
 
 Primary question: What sensing, state-estimation, hybrid-modelling, uncertainty-management, fault-handling and control methods are needed to develop a reliable digital twin for fed-batch fermentation when observations are delayed, sensors fail, and process conditions change?
 
+GitHub repository: https://github.com/Helios337/bioreactor-digital-twin (private).
+
 ## Scope
 
 Track A (active): critical literature review plus a proposed reliability-oriented reference architecture. This is the research paper deliverable.
