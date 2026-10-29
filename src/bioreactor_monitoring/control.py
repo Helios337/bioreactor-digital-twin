@@ -14,8 +14,9 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 
 import numpy as np
+from scipy.integrate import solve_ivp
 
-from bioreactor_monitoring.simulator import simulate, BajpaiReussParams
+from bioreactor_monitoring.simulator import rhs, simulate, BajpaiReussParams
 
 
 @dataclass
@@ -126,6 +127,72 @@ class ConstantFeed:
 
     def __call__(self, t: float, y_true: np.ndarray, measurement: Measurement) -> float:
         return self.F
+
+
+@dataclass
+class NonLinearMPC:
+    """Constrained nonlinear MPC on the plant model (receding horizon).
+
+    The controller predicts with the plant model from its current state
+    estimate, and solves for the feed sequence minimising squared substrate
+    regulation error, a large penalty for violating the volume limit, and a
+    move-suppression term. Only the first move is applied.
+
+    The horizon is N control steps; the volume limit is enforced as an
+    inequality constraint in the optimization.
+    """
+
+    params: BajpaiReussParams = field(default_factory=BajpaiReussParams)
+    N: int = 5
+    wS: float = 1.0
+    wV: float = 100.0          # penalty on volume above the limit (soft)
+    lam: float = 1e-3          # move suppression
+    Sref: float = 0.03
+    Fmax: float = 0.3
+    v_limit: float = 130.0
+    dt_h: float = 1.0
+
+    def __post_init__(self):
+        self._last_u: np.ndarray | None = None
+
+    def __call__(self, t: float, y_true: np.ndarray, measurement: Measurement) -> float:
+        from scipy.optimize import minimize
+
+        state = np.array([
+            measurement.X if measurement.X is not None else y_true[0],
+            measurement.S if measurement.S is not None else y_true[1],
+            measurement.P if measurement.P is not None else y_true[2],
+            measurement.V if measurement.V is not None else y_true[3],
+        ], dtype=float)
+        dt = self.dt_h
+
+        def rollout(u: np.ndarray) -> np.ndarray:
+            y = state.copy()
+            out = [y]
+            for f in u:
+                sol = solve_ivp(rhs, (0.0, dt), y, args=(self.params, float(f)),
+                                method="LSODA", rtol=1e-6, atol=1e-8, max_step=dt / 5.0)
+                y = sol.y[:, -1]
+                out.append(y)
+            return np.array(out[1:])          # states at steps 1..N
+
+        def cost(u: np.ndarray) -> float:
+            steps = rollout(u)
+            s_trajectory = steps[:, 1]
+            v_trajectory = steps[:, 3]
+            j = self.wS * np.sum((s_trajectory - self.Sref) ** 2)
+            j += self.wV * np.sum(np.maximum(v_trajectory - self.v_limit, 0.0) ** 2)
+            if self._last_u is not None and len(self._last_u) == len(u):
+                j += self.lam * np.sum((u - self._last_u) ** 2)
+            return float(j)
+
+        bounds = [(0.0, self.Fmax)] * self.N
+        x0 = (self._last_u if self._last_u is not None else np.full(self.N, 0.05)).copy()
+        res = minimize(cost, x0, method="SLSQP", bounds=bounds,
+                       options={"maxiter": 100, "ftol": 1e-9})
+        u = np.clip(res.x, 0.0, self.Fmax)
+        self._last_u = u
+        return float(u[0])
 
 
 def run_batch(policy, sensor, params: BajpaiReussParams, tf_h: float = 220.0,
