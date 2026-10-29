@@ -34,8 +34,9 @@ These rules bind every agent working in this repository. They derive from the re
 
 ## Scope guardrails
 
-- Do not download the IndPenSim dataset during the review phase.
-- Do not train models or claim experimental performance until the gated Track B phase is explicitly triggered.
+- Track B (empirical prototype) was explicitly triggered by the user on 2026-10-29. The IndPenSim dataset is downloaded and the data layer is built and tested.
+- All evaluation uses the simulated benchmark. Results are reported only from actual runs. No performance claim exists without a recorded run.
+- Dense true-state columns (S_true, P_true) are simulation truth. They are never soft-sensor inputs, only evaluation ground truth.
 - Do not install MCP servers or third-party skills without inspecting the source first. Keep API keys out of committed config.
 
 ## Workflow

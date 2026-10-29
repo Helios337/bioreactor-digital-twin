@@ -20,16 +20,19 @@ Track B (gated): an end-to-end empirical monitoring prototype on the IndPenSim b
 - Full text read for 7 sources (the seed corpus).
 - Search protocol defined and piloted. Screening of database searches in progress.
 - Architecture, synthesis and manuscript are scaffolds pending Phase 4 to 7 evidence work.
+- Track B triggered 2026-10-29: IndPenSim downloaded (CC BY 4.0), data layer built, 10/10 data-layer tests pass, labels reproduce Luo 2024 (33/33).
 
 ## Repository structure
 
-- references/: source_register.md, references.bib, literature_matrix.csv, metadata_raw.json, abstracts.json.
+- indpenmon/: monitoring prototype package (Track B). data.py verified: labels reproduce Luo 2024 (33/33), 4-h assay delay emulated, golden profiles, phase segmentation, Raman prep.
+- references/: source_register.md, references.bib, literature_matrix.csv, metadata_raw.json, abstracts.json, indpensim_labels.csv.
 - review/: scope_and_questions.md, search_protocol.md, screening_log.csv, synthesis_notes.md, paper_outline.md.
-- report/: project_report.md (professor-facing project report with full citations).
+- report/: project_report.md, project_report.pdf.
 - manuscript/: draft.md.
 - figures/: proposed_architecture.mmd.
-- tools/: verify_references.py, build_bib.py, build_matrix.py.
+- tools/: reference verification, BibTeX, matrix, report PDF, IndPenSim inspection, label and cache builders, data-layer tests.
 - .opencode/skills/: literature-review, citation-verification, scientific-writing, bioprocess-control-review.
+- data/: IndPenSim dataset and parquet caches (gitignored, about 2.5 GB).
 
 ## Quickstart
 
@@ -49,7 +52,7 @@ python3 tools/build_matrix.py        # writes references/literature_matrix.csv
 
 ## Data note
 
-The IndPenSim dataset (Mendeley Data V2, about 2.5 GB) is deliberately not downloaded during the review phase. The community GitHub implementation is used for understanding only and is never cited as authority.
+The IndPenSim dataset (Mendeley Data V2, CC BY 4.0, DOI 10.17632/pdnjz7zz5x.2) was downloaded on 2026-10-29 after the user explicitly triggered the gated Track B phase. It lives in data/IndPenSim/ (gitignored). Licence and version are documented in references/source_register.md. The community GitHub notebook was used only to learn the data layout.
 
 ## Integrity summary
 
