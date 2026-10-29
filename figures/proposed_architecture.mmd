@@ -1,0 +1,30 @@
+%% DRAFT - proposed architecture. Component citations pending Phase 5 synthesis.
+%% This diagram is a proposal to be evaluated. It is not validated and not safe-by-construction.
+%% Required components per brief: sensing/data integrity, state estimation/soft sensors,
+%% hybrid digital twin, uncertainty/drift assessment, constrained MPC, safety supervisor/fallback, feedback to process.
+graph LR
+  P["Process: fed-batch bioreactor<br/>penicillin benchmark (IndPenSim, simulated)"]
+  P -->|online vars 12 min; Raman 30 min| SENS
+  P -->|off-line assays 12 h + 4 h delay| SENS
+  SENS["Sensing and data integrity<br/>calibration checks, fault flags, delay handling<br/>[EVIDENCE: B7, S4]"]
+  SENS --> SS
+  SS["State estimation and soft sensors<br/>PLS baseline; LSTM/TCN/Transformer; VAE augmentation<br/>uncertainty intervals<br/>[EVIDENCE: B7, B8, B9, B10, S4, S5]"]
+  SS --> MON
+  SS --> DT
+  MON["Streaming golden-batch monitor<br/>3-sigma bands, deviation score, contribution RCA<br/>[PROPOSAL extending S1]"]
+  DT["Hybrid digital twin<br/>mechanistic core + data-driven residual<br/>[EVIDENCE: B1-B6, S3]"]
+  DT --> UNC
+  MON -->|deviation and early-warning alerts| UNC
+  UNC["Uncertainty and drift assessment<br/>estimation intervals, PSI-style drift, model health<br/>[PROPOSAL integrating B8, B10, S4]"]
+  UNC -->|reliability gates| MPC
+  MPC["Constrained MPC<br/>feed and PAA setpoints, metabolite constraints<br/>[EVIDENCE: S3, B5; RL alternative S7]"]
+  MPC -->|candidate actions| SUP
+  SUP["Safety supervisor and fallback<br/>constraint checks, sensor/model health gates, recipe fallback<br/>[PROPOSAL; no prior evidence in corpus]"]
+  SUP -->|approved action| P
+  SUP -->|feedback and labels| SENS
+  MON -->|campaign health labels| DT
+  classDef evidence fill:#e8f4e8,stroke:#2e7d32;
+  classDef proposal fill:#fff4e5,stroke:#e65100;
+  class SENS,SS,DT evidence;
+  class MON,UNC,SUP proposal;
+  class MPC evidence;
