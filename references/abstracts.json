@@ -1,0 +1,169 @@
+[
+ {
+  "id": "B1",
+  "doi": "10.1002/jctb.503300140",
+  "title": "A mechanistic model for penicillin production",
+  "abstract": "Abstract A mechanistic model for the production of penicillin has been investigated. Contois kinetics of growth coupled with a substrate\u2010inhibition model for product formation has been used to predict data for batch\u2010fed fermentation on synthetic and corn steep liquor medium. With the incorporation of oxygen limitation on growth and product formation it has been possible to investigate the effects of feeding rate, initial sugar concentration and the volumetric mass transfer coefficient for oxygen ( K L a ). Various experimentally observed trends for penicillin fermentation have been predicted qualitatively. Different product formation models have been critically reviewed with respect to the production of secondary metabolites.",
+  "oa_status": "closed",
+  "cited_by": 190,
+  "year": 1980
+ },
+ {
+  "id": "B2",
+  "doi": "10.1002/jctb.280610207",
+  "title": "Mathematical modelling of industrial pilot\u2010plant penicillin\u2010G fed\u2010batch fermentations",
+  "abstract": "Penicillin-G fermentation with industrial media in 1 m3 stirred tank bioreactors was studied. A model based on the Bajpai-Reuss model structure was developed. Under typical production conditions catabolite repression is nonidentifiable and extensive mycelium differentiation occurs. Thus, the original model was reformulated, neglecting glucose repression of penicillin production and including biomass autolysis. The multi-substrate nature of industrial media was critically analysed. By combining the two most important carbon substrates present, a simple and applicable model was obtained. Model predictions agreed well with experimental data and reproduced the general characteristics observed in the fermentations. The predictive power of the model was tested for fermentations with different sugar feed rate profiles and raw materials (corn-steep liquor and sugar syrup). Several aspects of parameter estimation and model development are discussed on the basis of direct experimental data inspection and a sensitivity analysis of model parameters.",
+  "oa_status": "closed",
+  "cited_by": 52,
+  "year": 1994,
+  "abstract_source": "openalex"
+ },
+ {
+  "id": "B3",
+  "doi": "10.1002/(SICI)1097-0290(19971220)56:6%3C593::AID-BIT1%3E3.0.CO;2-I",
+  "error": "HTTP Error 404: Not Found",
+  "abstract": "A mathematical model is formulated to describe trends in biomass and penicillin formation as well as substrate consumption for fed-batch cultivations. The biomass is structured into three morphological compartments, and glucose and corn steep liquor are considered as substrates for growth. Penicillin formation is assumed to take place in the subapical compartment and in the growing region of the hyphal compartment. Furthermore, it is inhibited by glucose. Model parameters are estimated using an evolutionary algorithm and fitting the model to a standard fed-batch cultivation. The model is validated on experimental data from three different fed-batch cultivations, including two repeated fed-batch cultivations. The model predictions show good agreement with the measurements of biomass and pencillin concentrations for all fed-batch cultivations. (c) 1997 John Wiley &amp; Sons, Inc. Biotechnol Bioeng 56: 593-604, 1997.",
+  "abstract_source": "pubmed"
+ },
+ {
+  "id": "B4",
+  "doi": "10.1016/S0098-1354(02)00127-8",
+  "title": "A modular simulation package for fed-batch fermentation: penicillin production",
+  "abstract": "Simulation software based on a detailed unstructured model for penicillin production in a fed-batch fermentor has been developed. The model extends the mechanistic model of Bajpai and Reuss by adding input variables such as pH, temperature, aeration rate, agitation power, and feed flow rate of substrate and introducing the CO2 evolution term. The simulation package was then used for monitoring and fault diagnosis of a typical penicillin fermentation process. The simulator developed may be used for both research and educational purposes.",
+  "oa_status": "closed",
+  "cited_by": 658,
+  "year": 2002,
+  "abstract_source": "publisher-page"
+ },
+ {
+  "id": "B5",
+  "doi": "10.1016/S1474-6670(17)59895-X",
+  "title": "Parameter Adaptive Control of the Fed-Batch Penicillin Fermentation",
+  "abstract": "This paper describes a study to investigate the application of parameter adaptive control to mould growth in a fed-batch fermentation for penicillin production. Two models for the penicillin fermentation are described: a new mechanistic model is outlined and compared with a model based upon the work of Bajpai with an extension to include terms for the production of carbon dioxide. The Bajpai model was initially used to represent the penicillin process for simulation purposes, with real-time experiments being carried out on a twenty litre pilot plant fermenter. The penicillin mould biomass is controlled to a reference trajectory by applying adaptive control to the on-line estimate of biomass obtained from a measurement of carbon dioxide production, use of the Bajpai fermentation model and an extended Kalman filter. The adaptive algorithm considered is the Generalised Predictive controller, a form of long range, receding horizon, predictive control. Results from the application of adaptive control to the penicillin fermentation are presented. This work forms part of an industrial collaborative project the aim of which is the optimising control of large fed-batch fermenters.",
+  "oa_status": "closed",
+  "cited_by": 11,
+  "year": 1985,
+  "abstract_source": "publisher-page"
+ },
+ {
+  "id": "B6",
+  "doi": "10.1016/j.jbiotec.2014.10.029",
+  "title": "The development of an industrial-scale fed-batch fermentation simulation",
+  "abstract": "This paper describes a simulation of an industrial-scale fed-batch fermentation that can be used as a benchmark in process systems analysis and control studies. The simulation was developed using a mechanistic model and validated using historical data collected from an industrial-scale penicillin fermentation process. Each batch was carried out in a 100,000 L bioreactor that used an industrial strain of Penicillium chrysogenum. The manipulated variables recorded during each batch were used as inputs to the simulator and the predicted outputs were then compared with the on-line and off-line measurements recorded in the real process. The simulator adapted a previously published structured model to describe the penicillin fermentation and extended it to include the main environmental effects of dissolved oxygen, viscosity, temperature, pH and dissolved carbon dioxide. In addition the effects of nitrogen and phenylacetic acid concentrations on the biomass and penicillin production rates were also included. The simulated model predictions of all the on-line and off-line process measurements, including the off-gas analysis, were in good agreement with the batch records. The simulator and industrial process data are available to download at www.industrialpenicillinsimulation.com and can be used to evaluate, study and improve on the current control strategy implemented on this facility.",
+  "oa_status": "green",
+  "cited_by": 143,
+  "year": 2014,
+  "abstract_source": "pubmed"
+ },
+ {
+  "id": "B7",
+  "doi": "10.1016/j.compchemeng.2019.05.037",
+  "title": "Modern day monitoring and control challenges outlined on an industrial-scale benchmark fermentation process",
+  "abstract": "This paper outlines real-world control challenges faced by modern-day biopharmaceutical facilities through the extension of a previously developed industrial-scale penicillin fermentation simulation ( IndPenSim ). The extensions include the addition of a simulated Raman spectroscopy device for the purpose of developing, evaluating and implementation of advanced and innovative control solutions applicable to biotechnology facilities. IndPenSim can be operated in fixed or operator controlled mode and generates all the available on-line, off-line and Raman spectra for each batch. The capabilities of IndPenSim were initially demonstrated through the implementation of a QbD methodology utilising the three stages of the PAT framework. Furthermore, IndPenSim evaluated a fault detection algorithm to detect process faults occurring on different batches recorded throughout a yearly campaign. The simulator and all data presented here are available to download at www.industrialpenicillinsimulation.com and acts as a benchmark for researchers to analyse, improve and optimise the current control strategy implemented on this facility. Additionally, a highly valuable data resource containing 100 batches with all available process and Raman spectroscopy measurements is freely available to download. This data is highly suitable for the development of big data analytics, machine learning (ML) or artificial intelligence (AI) algorithms applicable to the biopharmaceutical industry.",
+  "oa_status": "hybrid",
+  "cited_by": 78,
+  "year": 2019
+ },
+ {
+  "id": "B8",
+  "doi": "10.1016/j.compchemeng.2024.108991",
+  "title": "Towards a machine learning operations (MLOps) soft sensor for real-time predictions in industrial-scale fed-batch fermentation",
+  "abstract": "Real-time predictions in fermentation processes are crucial because they enable continuous monitoring and control of bioprocessing. However, the availability of online measurements is limited by the availability and feasibility of sensing technology. Soft sensors convert available measurements into measurements of interest such as product yield and quality. Machine learning based soft sensors have gained popularity since they can incorporate variables measured in real time and exploit intricate patterns in voluminous datasets. However an ML based soft sensor requires more than a classical ML learner with an unseen test set to evaluate prediction quality. When deployed in production, model performance can deteriorate rapidly leading to unanticipated decline in output and prediction quality. This work proposes a proof of concept of Machine Learning Operations (MLOps) to automate the end-to-end soft sensor lifecycle in industrial scale fed-batch fermentation, from development and deployment to maintenance and monitoring. Using the industrial-scale penicillin fermentation (IndPenSim) dataset of 100 fermentation batches, an LSTM soft sensor was built for penicillin concentration prediction. The batches containing deviations in the processes (91 to 100) were used to assess concept drift of the LSTM soft sensor. Concept drift is evidenced by soft sensor performance falling below a set threshold based on the Population Stability Index (PSI), which automatically triggers an alert to run the retraining pipeline.",
+  "oa_status": "bronze",
+  "cited_by": 40,
+  "year": 2024,
+  "abstract_source": "publisher-page"
+ },
+ {
+  "id": "B9",
+  "doi": "10.1021/acsomega.2c01108",
+  "title": "Nonlinear Dynamic Soft Sensor Development with a Supervised Hybrid CNN-LSTM Network for Industrial Processes",
+  "abstract": "A soft sensor is a key component when a real-time measurement is unavailable for industrial processes. Recently, soft sensor models based on deep-learning techniques have been successfully applied to complex industrial processes with nonlinear and dynamic characteristics. However, the conventional deep-learning-based methods cannot guarantee that the quality-relevant features are included in the hidden states when the modeling samples are limited. To address this issue, a supervised hybrid network based on a dynamic convolutional neural network (CNN) and a long short-term memory (LSTM) network is designed by constructing multilayer dynamic CNN-LSTM with improved structures. In each time instant, data augmentation is implemented by dynamic expansion of the original samples. Moreover, multiple supervised hidden units are trained by adding quality variables as part of the layer input to acquire a better quality-related feature learning performance. The effectiveness of the proposed soft senor development is validated through two industrial applications, including a penicillin fermentation process and a debutanizer column.",
+  "oa_status": "gold",
+  "cited_by": 44,
+  "year": 2022,
+  "abstract_source": "openalex"
+ },
+ {
+  "id": "B10",
+  "doi": "10.3390/bioengineering12060654",
+  "title": "A Hybrid Soft Sensor Approach Combining Partial Least-Squares Regression and an Unscented Kalman Filter for State Estimation in Bioprocesses",
+  "abstract": "Real-time information on key state variables during fermentation is crucial for the effective optimization and control of bioprocesses. Specialized sensors for online or at-line monitoring of these variables are often associated with high costs, especially during early-stage process optimization. In this study, fed-batch processes of an L-phenylalanine (L-phe) production process were carried out using a recombinant Escherichia coli strain under varying inducer concentrations. The available online process variables from the L-phe production process were used to estimate the state variables biomass, glycerol, L-phe, acetate, and L-tyrosine (L-tyr) via partial least-squares regression (PLSR). These predictions were then incorporated as measurements into an unscented Kalman filter (UKF). The filter uses a coarse-grained model as a state estimator, which, in addition to extracellular variables, also provides information on intracellular states. The results of PLSR showed very good prediction accuracy for L-phe, moderate accuracy for glycerol, biomass, and L-tyr and poor performance for acetate concentrations. In combination with the UKF, the estimation of the L-phe concentrations was greatly improved compared to the CGM, whereas further improvement is still needed for the remaining state variables.",
+  "oa_status": "gold",
+  "cited_by": 10,
+  "year": 2025
+ },
+ {
+  "id": "B11",
+  "doi": "10.1007/s43393-026-00454-8",
+  "title": "Opportunities of digital twin in controlling and monitoring microbial processes in food fermentation",
+  "abstract": "Digital twin (DT) technology is emerging as a promising approach for predictive analysis of real-world processes. In the food fermentation industry, feedstock variability, environmental deviations and microbial dynamics make the process rigorous and time-consuming. This review discusses the theoretical approach, components and technological enablers of DT such as soft sensors, cloud-integration platforms for data analysis and storage, process analytical tools, machine learning, artificial intelligence and the Internet of Things. The study emphasizes opportunities ranging from real-time monitoring and control of microbial processes, adaptive control and contamination prediction to evaluation of metabolites and by-products concentration and simulation of the physical fermenter. While results are promising at bench scale, limitations persist: biological variability, lack of standardized frameworks and lack of common data platforms for diverse datasets. Future prospects include modifications to the system and feeding pilot-scale data.",
+  "oa_status": "closed",
+  "cited_by": 5,
+  "year": 2026,
+  "abstract_source": "publisher-page"
+ },
+ {
+  "id": "B12",
+  "doi": "10.1371/journal.pmed.1003583",
+  "title": "The PRISMA 2020 statement: An updated guideline for reporting systematic reviews",
+  "abstract": "The Preferred Reporting Items for Systematic reviews and Meta-Analyses (PRISMA) statement, published in 2009, was designed to help systematic reviewers transparently report why the review was done, what the authors did, and what they found.Over the past decade, advances in systematic review methodology and terminology have necessitated an update to",
+  "oa_status": "gold",
+  "cited_by": 5138,
+  "year": 2021
+ },
+ {
+  "id": "S1",
+  "doi": "10.3389/fmtec.2024.1392038",
+  "title": "The golden batch-driven root cause analysis for anomalies in bioreactor fermentation process",
+  "abstract": "Bioreactors are essential for the production of biopharmaceuticals and bioproducts, requiring continuous monitoring to ensure quality assurance. Manual processes in manufacturing plants often lead to anomalies such as out-of-trend and out-of-spec incidents, necessitating extensive root cause analysis that typically takes 2\u20138 weeks. This paper introduces an innovative methodology that uses the golden batch profile as a benchmark to identify deviations and root causes in subsequent industrial batches. The methodology involves normalizing the data and calculating the variances of a specified batch from the golden batch profile. By examining the contribution of each critical process parameter to these variances, the study highlights their importance in root cause analysis. The application of this methodology to the IndPenSim dataset demonstrated its effectiveness by significantly reducing false positives and negatives compared to traditional PCA-based methods. Emphasis on the deviations of critical quality attributes and critical process parameters from the specified batch compared to the golden batch profile offers valuable insights into industrial process analysis. This approach not only enhances anomaly detection accuracy but also improves the efficiency and reliability of biopharmaceutical and bioproduct manufacturing processes.",
+  "oa_status": "gold",
+  "cited_by": 1,
+  "year": 2024
+ },
+ {
+  "id": "S3",
+  "doi": "10.1016/j.ifacol.2022.07.420",
+  "title": "Model Predictive Controller Design For Bioprocesses Based On Machine Learning Algorithms",
+  "abstract": "The optimization of critical quality attributes in biopharmaceutical processes demands the development of a scalable and optimal control scheme to meet the process constraints and objectives. In this paper, we designed a model predictive controller (MPC) to find the optimal feeding strategy to maximize cell growth and metabolite production in fed-batch bioprocesses. Due to high complexity of bioprocesses and lack of high-fidelity first principle models, we evaluated the use of machine learning algorithms in the forecast model to aid in our development. By taking advantage of the bioprocess model, this controller aims to maximize the protein production daily for each batch. The control scheme of the bioprocess is defined as an optimization problem to be solved while all metabolites and cell culture process variables are maintained within the specification. To evaluate the performance of the controller, we designed and implemented MPC with the best model to a bioreactor in a real experiment. The experimental validation confirms more than 2% improvement in final protein production compared to average historical experiments.",
+  "oa_status": "diamond",
+  "cited_by": 21,
+  "year": 2022
+ },
+ {
+  "id": "S4",
+  "doi": "10.3390/bioengineering11080803",
+  "title": "Enhancing Fermentation Process Monitoring through Data-Driven Modeling and Synthetic Time Series Generation",
+  "abstract": "Soft sensors based on deep learning regression models are promising approaches to predict real-time fermentation process quality measurements. However, experimental datasets are generally sparse and may contain outliers or corrupted data. This leads to insufficient model prediction performance. Therefore, datasets with a fully distributed solution space are required that enable effective exploration during model training. In this study, the robustness and predictive capability of the underlying model of a soft sensor was improved by generating synthetic datasets for training. The monitoring of intensified ethanol fermentation is used as a case study. Variational autoencoders were employed to create synthetic datasets, which were then combined with original datasets (experimental) to train neural network regression models. These models were tested on original versus augmented datasets to assess prediction improvements. Using the augmented datasets, the soft sensor predictive capability improved by 34%, and variability was reduced by 82%, based on R2 scores. The proposed method offers significant time and cost savings for dataset generation for the deep learning modeling of ethanol fermentation and can be easily adapted to other fermentation processes. This work contributes to the advancement of soft sensor technology, providing practical solutions for enhancing reliability and robustness in large-scale production.",
+  "oa_status": "gold",
+  "cited_by": 22,
+  "year": 2024
+ },
+ {
+  "id": "S5",
+  "doi": "10.3390/s20061771",
+  "title": "Modern Soft-Sensing Modeling Methods for Fermentation Processes",
+  "abstract": "For effective monitoring and control of the fermentation process, an accurate real-time measurement of important variables is necessary. These variables are very hard to measure in real-time due to constraints such as the time-varying, nonlinearity, strong coupling, and complex mechanism of the fermentation process. Constructing soft sensors with outstanding performance and robustness has become a core issue in industrial procedures. In this paper, a comprehensive review of existing data pre-processing approaches, variable selection methods, data-driven (black-box) soft-sensing modeling methods and optimization techniques was carried out. The data-driven methods used for the soft-sensing modeling such as support vector machine, multiple least square support vector machine, neural network, deep learning, fuzzy logic, probabilistic latent variable models are reviewed in detail. The optimization techniques used for the estimation of model parameters such as particle swarm optimization algorithm, ant colony optimization, artificial bee colony, cuckoo search algorithm, and genetic algorithm, are also discussed. A comprehensive analysis of various soft-sensing models is presented in tabular form which highlights the important methods used in the field of fermentation. More than 70 research publications on soft-sensing modeling methods for the estimation of variables have been examined and listed for quick reference. This review paper may be regarded as a useful source as a reference point for researchers to explore the opportunities for further enhancement in the field of soft-sensing modeling.",
+  "oa_status": "gold",
+  "cited_by": 140,
+  "year": 2020
+ },
+ {
+  "id": "S6",
+  "doi": "10.1016/j.biortech.2022.128523",
+  "title": "Review on machine learning-based bioprocess optimization, monitoring, and control systems",
+  "abstract": null,
+  "oa_status": "closed",
+  "cited_by": 177,
+  "year": 2022
+ },
+ {
+  "id": "S7",
+  "doi": "10.1016/j.engappai.2025.113326",
+  "title": "Reinforcement learning meets bioprocess control through behavior cloning: Real-world deployment in an industrial photobioreactor",
+  "abstract": "The complexity of living cells as production units creates major challenges for maintaining optimal bioprocess conditions, especially in open Photobioreactors (PBRs) exposed to fluctuating environments. To address this, we propose a Reinforcement Learning (RL) controller for pH regulation in open PBR systems. This work represents, to the best of our knowledge, the first industrial validation of an RL-based control strategy in a bioprocess. Our method begins with an offline training stage in which the RL agent learns from trajectories generated by a nominal Proportional\u2013Integral\u2013Derivative (PID) controller, without direct interaction with the real system. This is followed by deployment, where the RL agent acts and collects data during the day and is fine-tuned every night, enabling adaptation to evolving process dynamics and stronger rejection of fast, transient disturbances. This continual policy adaptation allows the offline-trained RL to effectively handle the inherent nonlinearities and external disturbances in open PBRs. Simulation studies highlight the advantages of our method: the Integral of Absolute Error (IAE) was reduced by 8% compared to PID control, 6% relative to a classical Model Predictive Controller (MPC), and 5% relative to a standard off-policy RL. Moreover, control effort decreased substantially\u2014by 54% compared to PID, 11% compared to MPC, and 7% compared to the standard off-policy RL. Finally, an 8-day experimental validation under varying environmental conditions confirmed the robustness and reliability of the proposed approach. Overall, this work demonstrates the potential of RL-based methods for bioprocess control and paves the way for their broader application to other nonlinear, disturbance-prone systems.",
+  "oa_status": "hybrid",
+  "cited_by": 12,
+  "year": 2025
+ }
+]
