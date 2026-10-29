@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bioreactor-monitoring"
+version = "0.1.0"
+description = "Minimal monitoring-to-control prototype for fed-batch penicillin fermentation."
+requires-python = ">=3.10"
+dependencies = [
+    "numpy",
+    "pandas",
+    "scipy",
+    "scikit-learn",
+    "matplotlib",
+    "statsmodels",
+    "PyYAML",
+    "pyarrow",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "streamlit"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

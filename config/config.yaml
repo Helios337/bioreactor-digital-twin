@@ -1,0 +1,56 @@
+# Configuration for the bioreactor monitoring-to-control prototype.
+# Paths are relative to the repository root unless absolute.
+
+data:
+  dir: data/IndPenSim
+  archive: data/IndPenSim/100_Batches_IndPenSim.zip
+  extracted_dir: data/IndPenSim/extracted
+  process_csv_expected: "100_Batches_IndPenSim_V3.csv"
+  statistics_csv_expected: "100_Batches_IndPenSim_Statistics.csv"
+  doi: "10.17632/pdnjz7zz5x.2"
+  licence: "CC BY 4.0"
+  sha256: "bc434c6cf96444fee3c915d434ac84e2a9c6492be4daebcfa4aed9cdff181f00"
+
+regimes:
+  recipe: [1, 30]
+  operator: [31, 60]
+  apc: [61, 90]
+  fault: [91, 100]
+
+splits:
+  # Complete-batch splits only. Adjusted after inspection.
+  seed: 42
+  test_batches: []        # fixed after inspection
+  monitoring_validation_batches: []
+
+softsensor:
+  target: "penicillin_conc_g_l"
+  models: ["ridge", "random_forest"]
+  cv_folds: 5
+  metrics: ["mae", "rmse", "r2"]
+
+monitoring:
+  golden_band_k: 3.0
+  min_alarm_duration_h: 2.0
+  deviation_metric: "smape"
+
+control:
+  manipulated_variable: "sugar_feed_rate_l_h"
+  control_interval_h: 0.2
+  harvest_time_h: 220.0
+  feed_min_l_h: 0.0
+  feed_max_l_h: 100.0
+  feed_move_max_l_h: 5.0
+  substrate_max_g_l: 0.3
+  volume_min_kg: 70000.0
+  volume_max_kg: 110000.0
+
+simulator:
+  # Bajpai-Reuss parameters loaded from src/bioreactor_monitoring/simulator.py defaults.
+  seed: 7
+  solver: "LSODA"
+  dt_max_h: 0.05
+
+results:
+  dir: results
+  report_format: ["csv", "json", "png"]

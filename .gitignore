@@ -17,3 +17,6 @@ data/
 # Local environment
 .venv/
 venv/
+
+# Python build artifacts
+*.egg-info/
