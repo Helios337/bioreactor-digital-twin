@@ -73,15 +73,15 @@ RQ mapping: S1 and S5 serve RQ1. S1 and S3 serve RQ2. S4, S6, S8 serve RQ3. S2 a
 
 | Query | Database | Date | Hits | After dedup | Included | Excluded | Notes |
 |---|---|---|---|---|---|---|---|
-| S1 | OpenAlex | 2026-10-29 | | | | | |
+| S1 | OpenAlex | 2026-10-29 | 1014 | 25 screened | 1 | 0 | pilot run 2026-10-29; top 25 returned; 1 already in corpus; candidates logged pending-screen |
 | S1 | Crossref | 2026-10-29 | | | | | |
 | S2 | OpenAlex | 2026-10-29 | | | | | |
 | S2 | Crossref | 2026-10-29 | | | | | |
 | S3 | OpenAlex | 2026-10-29 | | | | | |
-| S4 | OpenAlex | 2026-10-29 | | | | | |
+| S4 | OpenAlex | 2026-10-29 | 2435 | 25 screened | 0 | 0 | pilot run 2026-10-29; top 25 returned; 0 already in corpus; candidates logged pending-screen |
 | S5 | OpenAlex | 2026-10-29 | | | | | |
-| S6 | OpenAlex | 2026-10-29 | | | | | |
-| S7 | OpenAlex | 2026-10-29 | | | | | |
+| S6 | OpenAlex | 2026-10-29 | 245 | 25 screened | 2 | 0 | pilot run 2026-10-29; top 25 returned; 2 already in corpus; candidates logged pending-screen |
+| S7 | OpenAlex | 2026-10-29 | 37 | 25 screened | 1 | 0 | pilot run 2026-10-29; top 25 returned; 1 already in corpus; candidates logged pending-screen |
 | S8 | OpenAlex | 2026-10-29 | | | | | |
 | S9 | OpenAlex | 2026-10-29 | | | | | |
 

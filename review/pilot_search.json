@@ -1,0 +1,834 @@
+{
+ "S1": {
+  "query": "((\"fed-batch\" OR \"fed batch\") AND fermentation AND (\"soft sensor\" OR \"soft-sensor\" OR \"state estimation\"))",
+  "date": "2026-10-29",
+  "hits": 1014,
+  "returned": 25,
+  "results": [
+   {
+    "doi": "10.1016/j.conengprac.2005.05.007",
+    "title": "Modelling, on-line state estimation and fuzzy control of production scale fed-batch baker's yeast fermentation",
+    "year": 2005,
+    "venue": "Control Engineering Practice",
+    "cited_by": 81,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1016/j.compchemeng.2014.07.014",
+    "title": "Adaptive soft sensor modeling framework based on just-in-time learning and kernel partial least squares regression for n",
+    "year": 2014,
+    "venue": "Computers & Chemical Engineering",
+    "cited_by": 103,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1007/s00449-008-0257-x",
+    "title": "Monitoring of fed-batch E. coli fermentations with software sensors",
+    "year": 2008,
+    "venue": "Bioprocess and Biosystems Engineering",
+    "cited_by": 52,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1002/bit.10649",
+    "title": "Evaluation of spectrofluorometry as a tool for estimation in fed\u2010batch fermentations",
+    "year": 2003,
+    "venue": "Biotechnology and Bioengineering",
+    "cited_by": 40,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1016/j.compchemeng.2024.108991",
+    "title": "Towards a machine learning operations (MLOps) soft sensor for real-time predictions in industrial-scale fed-batch fermen",
+    "year": 2024,
+    "venue": "Computers & Chemical Engineering",
+    "cited_by": 40,
+    "already_corpus": true
+   },
+   {
+    "doi": "10.1016/j.compchemeng.2024.108736",
+    "title": "Soft sensors based on interpretable learners for industrial-scale fed-batch fermentation: Learning from simulations",
+    "year": 2024,
+    "venue": "Computers & Chemical Engineering",
+    "cited_by": 19,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1016/s1474-6670(17)61973-6",
+    "title": "State Estimation of a Fed-Batch Baker's Yeast Fermentation",
+    "year": 1983,
+    "venue": "IFAC Proceedings Volumes",
+    "cited_by": 19,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1007/s00449-012-0840-z",
+    "title": "Soft sensor control of metabolic fluxes in a recombinant Escherichia coli fed-batch cultivation producing green fluoresc",
+    "year": 2012,
+    "venue": "Bioprocess and Biosystems Engineering",
+    "cited_by": 27,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1007/s10586-018-1790-2",
+    "title": "Research and application of biological potency soft sensor modeling method in the industrial fed-batch chlortetracycline",
+    "year": 2018,
+    "venue": "Cluster Computing",
+    "cited_by": 10,
+    "already_corpus": false
+   },
+   {
+    "doi": "",
+    "title": "Model-based identification and control on baker's yeast fed-batch fermentation",
+    "year": 1993,
+    "venue": "Portuguese National Funding Agency for Science, Research and Technology (RCAAP Project by FCT)",
+    "cited_by": 2,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1002/cjce.5450640407",
+    "title": "Modelling and adaptive control of fed\u2010batch penicillin fermentation",
+    "year": 1986,
+    "venue": "The Canadian Journal of Chemical Engineering",
+    "cited_by": 51,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1016/b978-0-08-029978-5.50028-8",
+    "title": "STATE ESTIMATION OF A FED-BATCH BAKER'S YEAST FERMENTATION",
+    "year": 1983,
+    "venue": "Elsevier eBooks",
+    "cited_by": 7,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1002/bit.27454",
+    "title": "Biomass soft sensor for a Pichia pastoris fed\u2010batch process based on phase detection and hybrid modeling",
+    "year": 2020,
+    "venue": "Biotechnology and Bioengineering",
+    "cited_by": 20,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1016/s1474-6670(17)34244-1",
+    "title": "An Integrated System for Advanced Monitoring and Control of Fed-Batch Fermevtations of Recombinant E. coli",
+    "year": 2001,
+    "venue": "IFAC Proceedings Volumes",
+    "cited_by": 6,
+    "already_corpus": false
+   },
+   {
+    "doi": "",
+    "title": "Optimal control of a fed-batch fermentation",
+    "year": 1984,
+    "venue": "Progress in industrial microbiology",
+    "cited_by": 11,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1007/978-4-431-68180-9_187",
+    "title": "Modelling and Adaptive State Estimation for Fed-Batch Fermentation",
+    "year": 1992,
+    "venue": "Springer eBooks",
+    "cited_by": 0,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1002/aic.10996",
+    "title": "State estimation and error diagnosis in industrial fed\u2010batch yeast fermentation",
+    "year": 2006,
+    "venue": "AIChE Journal",
+    "cited_by": 17,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1016/j.cherd.2026.01.064",
+    "title": "Heat balance soft sensor for ethanol and substrate monitoring in very high gravity fed-batch fermentations with CO2 stri",
+    "year": 2026,
+    "venue": "Process Safety and Environmental Protection",
+    "cited_by": 0,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1021/ie201650u",
+    "title": "Just-in-Time Kernel Learning with Adaptive Parameter Selection for Soft Sensor Modeling of Batch Processes",
+    "year": 2012,
+    "venue": "Industrial & Engineering Chemistry Research",
+    "cited_by": 102,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1007/978-3-319-40162-1_19",
+    "title": "Soft-Sensors for Lipid Fermentation Variables Based on PSO Support Vector Machine (PSO-SVM)",
+    "year": 2016,
+    "venue": "Advances in intelligent systems and computing",
+    "cited_by": 9,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1007/s00449-012-0848-4",
+    "title": "Real-time estimation of biomass and specific growth rate in physiologically variable recombinant fed-batch processes",
+    "year": 2012,
+    "venue": "Bioprocess and Biosystems Engineering",
+    "cited_by": 102,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.33263/briac132.194",
+    "title": "Development of Soft Sensors for Online Biomass Prediction in Production of Hepatitis B Vaccine",
+    "year": 2022,
+    "venue": "Biointerface Research in Applied Chemistry",
+    "cited_by": 3,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1002/biot.201100506",
+    "title": "Soft sensors in bioprocessing: A status report and recommendations",
+    "year": 2012,
+    "venue": "Biotechnology Journal",
+    "cited_by": 238,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.34726/hss.2019.62901",
+    "title": "Online biomass estimation via a robust soft sensor",
+    "year": 2019,
+    "venue": "reposiTUm (TU Wien)",
+    "cited_by": 0,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1385/abab:113:1-3:137",
+    "title": "Model Based Soft-Sensor for On-Line Determination of Substrate",
+    "year": 2004,
+    "venue": "Applied Biochemistry and Biotechnology",
+    "cited_by": 6,
+    "already_corpus": false
+   }
+  ]
+ },
+ "S4": {
+  "query": "((fermentation OR bioprocess) AND (\"fault detection\" OR \"fault diagnosis\" OR \"sensor fault\"))",
+  "date": "2026-10-29",
+  "hits": 2435,
+  "returned": 25,
+  "results": [
+   {
+    "doi": "10.3849/aimt.01003",
+    "title": "Fault Detection and Diagnosis Based on Extensions of PCA",
+    "year": 2013,
+    "venue": "Advances in Military Technology",
+    "cited_by": 26,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1007/s00449-011-0649-1",
+    "title": "Fault diagnosis of a benchmark fermentation process: a comparative study of feature extraction and classification techni",
+    "year": 2011,
+    "venue": "Bioprocess and Biosystems Engineering",
+    "cited_by": 25,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1016/j.chemolab.2019.103893",
+    "title": "Sparse PARAFAC2 decomposition: Application to fault detection and diagnosis in batch processes",
+    "year": 2019,
+    "venue": "Chemometrics and Intelligent Laboratory Systems",
+    "cited_by": 6,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1016/s1474-6670(17)38809-2",
+    "title": "Multi-PCA Models for Process Monitoring and Fault Diagnosis",
+    "year": 2004,
+    "venue": "IFAC Proceedings Volumes",
+    "cited_by": 2,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1016/j.neucom.2016.01.027",
+    "title": "Fed-batch fermentation penicillin process fault diagnosis and detection based on support vector machine",
+    "year": 2016,
+    "venue": "Neurocomputing",
+    "cited_by": 54,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1002/rnc.7460",
+    "title": "Zonotopic state estimation and sensor fault detection for a wastewater treatment bioprocess",
+    "year": 2024,
+    "venue": "International Journal of Robust and Nonlinear Control",
+    "cited_by": 6,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1016/j.isatra.2024.03.003",
+    "title": "Fault diagnosis based on counterfactual inference for the batch fermentation process",
+    "year": 2024,
+    "venue": "ISA Transactions",
+    "cited_by": 10,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1016/b978-0-444-54298-4.50053-2",
+    "title": "Dynamic process monitoring and fault detection in a batch fermentation process",
+    "year": 2011,
+    "venue": "Computer-aided chemical engineering/Computer aided chemical engineering",
+    "cited_by": 9,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1016/0098-1354(96)00111-1",
+    "title": "Fault and contamination detection in a continuous bakers yeast fermentation",
+    "year": 1996,
+    "venue": "Computers & Chemical Engineering",
+    "cited_by": 1,
+    "already_corpus": false
+   },
+   {
+    "doi": "",
+    "title": "Fault Diagnosis in a Yeast Fermentation Bioreactor by Genetic Fuzzy System",
+    "year": 2010,
+    "venue": "DOAJ (DOAJ: Directory of Open Access Journals)",
+    "cited_by": 3,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1016/0003-2670(94)85124-7",
+    "title": "Knowledge-based fault detection and diagnosis in flow-injection analysis",
+    "year": 1994,
+    "venue": "Analytica Chimica Acta",
+    "cited_by": 33,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1021/bp0704384",
+    "title": "Application of Multivariate Data Analysis for Identification and Successful Resolution of a Root Cause for a Bioprocessi",
+    "year": 2008,
+    "venue": "Biotechnology Progress",
+    "cited_by": 95,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1021/ie070381q",
+    "title": "Fault Detection of Nonlinear Processes Using Multiway Kernel Independent Component Analysis",
+    "year": 2007,
+    "venue": "Industrial & Engineering Chemistry Research",
+    "cited_by": 119,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.3390/pr13082544",
+    "title": "A Review of Artificial Intelligence Applications for Biorefineries and Bioprocessing: From Data-Driven Processes to Opti",
+    "year": 2025,
+    "venue": "Processes",
+    "cited_by": 105,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1016/j.jfranklin.2025.107683",
+    "title": "Fault detection for wastewater treatment bioprocesses based on ellipsoid bundles",
+    "year": 2025,
+    "venue": "Journal of the Franklin Institute",
+    "cited_by": 0,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1016/b978-0-444-64235-6.50204-7",
+    "title": "Fault detection of fermentation processes",
+    "year": 2018,
+    "venue": "Computer-aided chemical engineering/Computer aided chemical engineering",
+    "cited_by": 4,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1016/c2009-0-21189-5",
+    "title": "Neural Networks in Bioprocessing and Chemical Engineering",
+    "year": 1995,
+    "venue": "Elsevier eBooks",
+    "cited_by": 351,
+    "already_corpus": false
+   },
+   {
+    "doi": "",
+    "title": "Statistical Process Monitoring for Fault Detection & Diagnosis in (Bio)chemical Processes (Statistische procesopvolging ",
+    "year": 2014,
+    "venue": null,
+    "cited_by": 0,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1109/acc.2006.1657601",
+    "title": "Fault detection and diagnosis in industrial fed-batch fermentation",
+    "year": 2006,
+    "venue": "Proceedings of the ... American Control Conference/Proceedings of the American Control Conference",
+    "cited_by": 19,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1007/s00521-024-09604-2",
+    "title": "Fault detection of wind turbine system based on data-driven methods: a comparative study",
+    "year": 2024,
+    "venue": "Neural Computing and Applications",
+    "cited_by": 24,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1016/s1474-6670(17)48025-6",
+    "title": "Fault Detection by Using Process Functional States and Temporal Logic NETS",
+    "year": 1994,
+    "venue": "IFAC Proceedings Volumes",
+    "cited_by": 4,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.3390/math13122035",
+    "title": "Fault Diagnosis and Identification of Abnormal Variables Based on Center Nearest Neighbor Reconstruction Theory",
+    "year": 2025,
+    "venue": "Mathematics",
+    "cited_by": 0,
+    "already_corpus": false
+   },
+   {
+    "doi": "",
+    "title": "Power systems, biotechnological processes, fault detection I",
+    "year": 1999,
+    "venue": "Published for the International Federation of Automatic Control by Pergamon eBooks",
+    "cited_by": 0,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.3389/fbioe.2021.722202",
+    "title": "Challenges in the Development of Soft Sensors for Bioprocesses: A Critical Review",
+    "year": 2021,
+    "venue": "Frontiers in Bioengineering and Biotechnology",
+    "cited_by": 100,
+    "already_corpus": false
+   },
+   {
+    "doi": "",
+    "title": "Tools for fault detection and diagnosis",
+    "year": 2008,
+    "venue": "HAL",
+    "cited_by": 0,
+    "already_corpus": false
+   }
+  ]
+ },
+ "S6": {
+  "query": "((fermentation OR bioprocess) AND (\"concept drift\" OR \"model drift\" OR \"model maintenance\") AND (\"machine learning\" OR \"soft sensor\"))",
+  "date": "2026-10-29",
+  "hits": 245,
+  "returned": 25,
+  "results": [
+   {
+    "doi": "10.1016/j.compchemeng.2024.108991",
+    "title": "Towards a machine learning operations (MLOps) soft sensor for real-time predictions in industrial-scale fed-batch fermen",
+    "year": 2024,
+    "venue": "Computers & Chemical Engineering",
+    "cited_by": 40,
+    "already_corpus": true
+   },
+   {
+    "doi": "10.2139/ssrn.6438021",
+    "title": "STAMM: Soft sensor moniToring and mAintenance framework for Machine learning Models",
+    "year": 2026,
+    "venue": "SSRN Electronic Journal",
+    "cited_by": 0,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1016/j.softx.2026.102783",
+    "title": "STAMM: Soft sensor moniToring and mAintenance framework for Machine learning Models",
+    "year": 2026,
+    "venue": "SoftwareX",
+    "cited_by": 1,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.3390/s23031520",
+    "title": "Online-Dynamic-Clustering-Based Soft Sensor for Industrial Semi-Supervised Data Streams",
+    "year": 2023,
+    "venue": "Sensors",
+    "cited_by": 16,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1016/j.afres.2026.102533",
+    "title": "Closed loop precision fermentation of circular bio-substrates: Integrating multi-omics and machine learning-assisted vol",
+    "year": 2026,
+    "venue": "Applied Food Research",
+    "cited_by": 0,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1007/s40747-020-00259-9",
+    "title": "Machine learning based soft sensor model for BOD estimation using intelligence at edge",
+    "year": 2021,
+    "venue": "Complex & Intelligent Systems",
+    "cited_by": 61,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1111/1750-3841.71520",
+    "title": "Table Olive Fermentation: Microbial Ecology, Metabolite Transformation, and Emerging Non\u2010Thermal and Omics\u2010Based Technol",
+    "year": 2026,
+    "venue": "Journal of Food Science",
+    "cited_by": 0,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.3389/fbioe.2021.722202",
+    "title": "Challenges in the Development of Soft Sensors for Bioprocesses: A Critical Review",
+    "year": 2021,
+    "venue": "Frontiers in Bioengineering and Biotechnology",
+    "cited_by": 100,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1016/j.engappai.2023.105988",
+    "title": "The role of artificial intelligence-driven soft sensors in advanced sustainable process industries: A critical review",
+    "year": 2023,
+    "venue": "Engineering Applications of Artificial Intelligence",
+    "cited_by": 283,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1016/j.trac.2025.118319",
+    "title": "Cloning instruments, model maintenance and calibration transfer",
+    "year": 2025,
+    "venue": "TrAC Trends in Analytical Chemistry",
+    "cited_by": 26,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.3390/s20061771",
+    "title": "Modern Soft-Sensing Modeling Methods for Fermentation Processes",
+    "year": 2020,
+    "venue": "Sensors",
+    "cited_by": 140,
+    "already_corpus": true
+   },
+   {
+    "doi": "10.1002/bit.27454",
+    "title": "Biomass soft sensor for a Pichia pastoris fed\u2010batch process based on phase detection and hybrid modeling",
+    "year": 2020,
+    "venue": "Biotechnology and Bioengineering",
+    "cited_by": 20,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1016/j.chemolab.2013.03.008",
+    "title": "Development of soft-sensor using locally weighted PLS with adaptive similarity measure",
+    "year": 2013,
+    "venue": "Chemometrics and Intelligent Laboratory Systems",
+    "cited_by": 97,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1016/j.compchemeng.2016.08.017",
+    "title": "Multiple adaptive mechanisms for data-driven soft sensors",
+    "year": 2016,
+    "venue": "Computers & Chemical Engineering",
+    "cited_by": 43,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1002/eng2.12230",
+    "title": "Calibration transfer for bioprocess Raman monitoring using Kennard Stone piecewise direct standardization and multivaria",
+    "year": 2020,
+    "venue": "Engineering Reports",
+    "cited_by": 25,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.51219/jaimld/rohit-singhal/330",
+    "title": "Leveraging Machine Learning for Transformative Impact in Pharmaceutical Manufacturing: Best Practices and Applications",
+    "year": 2023,
+    "venue": "Journal of Artificial Intelligence Machine Learning and Data Science",
+    "cited_by": 0,
+    "already_corpus": false
+   },
+   {
+    "doi": "",
+    "title": "INRAE - Inteligencia artificial explicativa soft sensor",
+    "year": 2025,
+    "venue": "Biblioteca Digital - Universidad Icesi",
+    "cited_by": 0,
+    "already_corpus": false
+   },
+   {
+    "doi": "",
+    "title": "Ensemble Learning Methodologies for Soft Sensor Development in Industrial Processes",
+    "year": 2015,
+    "venue": "Portuguese National Funding Agency for Science, Research and Technology (RCAAP Project by FCT)",
+    "cited_by": 10,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1208/s12249-023-02697-3",
+    "title": "Machine Learning-Enabled NIR Spectroscopy. Part 3: Hyperparameter by Design (HyD) Based ANN-MLP Optimization, Model Gene",
+    "year": 2023,
+    "venue": "AAPS PharmSciTech",
+    "cited_by": 12,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.3390/s23042178",
+    "title": "Generalizability of Soft Sensors for Bioprocesses through Similarity Analysis and Phase-Dependent Recalibration",
+    "year": 2023,
+    "venue": "Sensors",
+    "cited_by": 11,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.3390/s19235255",
+    "title": "Soft Sensors in the Primary Aluminum Production Process Based on Neural Networks Using Clustering Methods",
+    "year": 2019,
+    "venue": "Sensors",
+    "cited_by": 18,
+    "already_corpus": false
+   },
+   {
+    "doi": "",
+    "title": "Computational Intelligence Methodologies for Soft Sensors Development in Industrial Processes",
+    "year": 2014,
+    "venue": "Portuguese National Funding Agency for Science, Research and Technology (RCAAP Project by FCT)",
+    "cited_by": 0,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.3303/cet1870237",
+    "title": "On-line Calibration of Just in Time Learning and Gaussian Process Regression based Soft Sensor with Moving-Window Techno",
+    "year": 2018,
+    "venue": "Chemical engineering transactions",
+    "cited_by": 1,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1016/j.measen.2022.100542",
+    "title": "Robust soft sensor systems for industry: Evaluated through real-time case study",
+    "year": 2022,
+    "venue": "Measurement Sensors",
+    "cited_by": 3,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.2139/ssrn.7576399",
+    "title": "A Reconciled Phase-Aware Digital Twin with Constrained Receding-Horizon Optimization for Fed-Batch Penicillin Fermentati",
+    "year": 2026,
+    "venue": "SSRN Electronic Journal",
+    "cited_by": 0,
+    "already_corpus": false
+   }
+  ]
+ },
+ "S7": {
+  "query": "((\"golden batch\" OR \"deviation analysis\") AND (fermentation OR bioprocess) AND (anomaly OR \"root cause\"))",
+  "date": "2026-10-29",
+  "hits": 37,
+  "returned": 25,
+  "results": [
+   {
+    "doi": "10.3389/fmtec.2024.1392038",
+    "title": "The golden batch-driven root cause analysis for anomalies in bioreactor fermentation process",
+    "year": 2024,
+    "venue": "Frontiers in Manufacturing Technology",
+    "cited_by": 1,
+    "already_corpus": true
+   },
+   {
+    "doi": "10.1007/s10845-025-02789-w",
+    "title": "System and system-of-systems digital twins for predictive maintenance and root cause analysis",
+    "year": 2026,
+    "venue": "Journal of Intelligent Manufacturing",
+    "cited_by": 3,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.3390/chemengineering9040078",
+    "title": "Industry 5.0 and Digital Twins in the Chemical Industry: An Approach to the Golden Batch Concept",
+    "year": 2025,
+    "venue": "ChemEngineering",
+    "cited_by": 9,
+    "already_corpus": false
+   },
+   {
+    "doi": "",
+    "title": "Small scale bioprocess optimization using soft sensors",
+    "year": 2019,
+    "venue": "Z\u00fcrcher Hochschule f\u00fcr Angewandte Wissenschaften digital collection (Zurich University of Applied Sciences)",
+    "cited_by": 0,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.3390/pr8050582",
+    "title": "Monitoring Parallel Robotic Cultivations with Online Multivariate Analysis",
+    "year": 2020,
+    "venue": "Processes",
+    "cited_by": 15,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.3390/pr13113519",
+    "title": "Raman Spectroscopy Coupled with Multivariate Statistical Process Control for Detecting Anomalies During Milk Coagulation",
+    "year": 2025,
+    "venue": "Processes",
+    "cited_by": 2,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1007/s10295-017-1984-2",
+    "title": "Use of near-infrared spectroscopy (NIRs) in the biopharmaceutical industry for real-time determination of critical proce",
+    "year": 2017,
+    "venue": "Journal of Industrial Microbiology & Biotechnology",
+    "cited_by": 14,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.36227/techrxiv.16478856.v1",
+    "title": "Beyond building predictive models: TwinOps in biomanufacturing",
+    "year": 2021,
+    "venue": null,
+    "cited_by": 6,
+    "already_corpus": false
+   },
+   {
+    "doi": "",
+    "title": "Integrated Process Modeling and Data Analytics for Optimizing Polyolefin Manufacturing",
+    "year": 2021,
+    "venue": "VTechWorks (Virginia Tech)",
+    "cited_by": 0,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.37251/jocli.v2i2.2946",
+    "title": "Comparative Spectral Sensitivity and Quantitative Accuracy of X-ray Fluorescence and Optical Emission Spectroscopy for A",
+    "year": 2025,
+    "venue": "Journal of Chemical Learning Innovation.",
+    "cited_by": 0,
+    "already_corpus": false
+   },
+   {
+    "doi": "",
+    "title": "Image-based modeling of three-way data for butter authentication",
+    "year": 2025,
+    "venue": "VBN Forskningsportal (Aalborg Universitet)",
+    "cited_by": 0,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.20381/ruor-25463",
+    "title": "Bptf is essential for murine neocortical development",
+    "year": 2020,
+    "venue": "uO Research (University of Ottawa)",
+    "cited_by": 0,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.36948/ijfmr.2025.v07i01.37180",
+    "title": "Batch Process Optimization Using Multi-Variate Data Analysis (MVDA)",
+    "year": 2025,
+    "venue": "International Journal For Multidisciplinary Research",
+    "cited_by": 0,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1016/j.coche.2021.100758",
+    "title": "A decade in review: use of data analytics within the biopharmaceutical sector",
+    "year": 2021,
+    "venue": "Current Opinion in Chemical Engineering",
+    "cited_by": 38,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.25258/ijpqa.11.1.26",
+    "title": "Impact of Automation in Pharmaceutical Industry on Roles and Responsibilities of Quality Assurance: A Review",
+    "year": 2020,
+    "venue": "International Journal of Pharmaceutical Quality Assurance",
+    "cited_by": 2,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1016/j.biotechadv.2022.108048",
+    "title": "Applications of bio-capacitance to cell culture manufacturing",
+    "year": 2022,
+    "venue": "Biotechnology Advances",
+    "cited_by": 44,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.1016/j.procir.2026.03.224",
+    "title": "From Research to Practice: Realizing the Golden Run in Paper Production through Data-Driven Support for Process Optimiza",
+    "year": 2026,
+    "venue": "Procedia CIRP",
+    "cited_by": 0,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.30574/msabp.2023.10.2.0077",
+    "title": "Structural characterization of bacteria-produced organic immunomodulators using NMR, ESI-MS, and HPLC for vaccine applic",
+    "year": 2023,
+    "venue": "Magna Scientia Advanced Biology and Pharmacy",
+    "cited_by": 0,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.5772/intechopen.108565",
+    "title": "Challenges and Emerging Technologies in Biomanufacturing of Monoclonal Antibodies (mAbs)",
+    "year": 2022,
+    "venue": "Biomedical engineering",
+    "cited_by": 11,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.3390/beverages4010023",
+    "title": "Wine Traceability with Rare Earth Elements",
+    "year": 2018,
+    "venue": "Beverages",
+    "cited_by": 32,
+    "already_corpus": false
+   },
+   {
+    "doi": "",
+    "title": "Impulse mixer technology reliability and redesign improvement in biotechnology drug substance manufacturing",
+    "year": 2016,
+    "venue": "DSpace@MIT (Massachusetts Institute of Technology)",
+    "cited_by": 0,
+    "already_corpus": false
+   },
+   {
+    "doi": "",
+    "title": "Data Fusion for the Food Industry: Leveraging Machine Learning and Deep Learning Algorithms",
+    "year": 2025,
+    "venue": "Institutional Research Information System University of Turin (University of Turin)",
+    "cited_by": 0,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.15488/10601",
+    "title": "Process transfer and optimization of Chinese hamster ovary cell cultivation for monoclonal antibody production",
+    "year": 2021,
+    "venue": "Institutional Repository of Leibniz Universit\u00e4t Hannover (Leibniz Universit\u00e4t Hannover)",
+    "cited_by": 1,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.63125/7dmmkm33",
+    "title": "Using Data Analytics to Detect Out of Specification Trend in Pharmaceutical Production for Public Health Protection",
+    "year": 2026,
+    "venue": null,
+    "cited_by": 0,
+    "already_corpus": false
+   },
+   {
+    "doi": "10.63125/ng0x8j42",
+    "title": "Data-Driven Detection of Out-of-Specification Trends in Pharmaceutical Production: A Public Health Imperative",
+    "year": 2026,
+    "venue": "American Journal of Scholarly Research and Innovation",
+    "cited_by": 0,
+    "already_corpus": false
+   }
+  ]
+ }
+}
