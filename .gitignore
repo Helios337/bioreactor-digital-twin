@@ -1,0 +1,19 @@
+# Byte-compiled and caches
+__pycache__/
+*.py[cod]
+
+# OS files
+.DS_Store
+
+# Editor and IDE
+.vscode/
+.idea/
+
+# Data (large benchmark downloads belong outside version control)
+data/
+*.mat
+*.zip
+
+# Local environment
+.venv/
+venv/

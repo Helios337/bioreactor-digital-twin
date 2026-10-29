@@ -1,0 +1,1026 @@
+[
+ {
+  "id": "B1",
+  "group": "A. Foundational mechanistic models",
+  "label": "Bajpai & Reuss, mechanistic model for penicillin production",
+  "doi": "10.1002/jctb.503300140",
+  "expected_year": 1980,
+  "expected_first": "Bajpai",
+  "crossref": {
+   "title": "A mechanistic model for penicillin production",
+   "container": "Journal of Chemical Technology and Biotechnology",
+   "year": 1980,
+   "first_author": "Bajpai",
+   "authors": [
+    [
+     "Bajpai",
+     "R. K."
+    ],
+    [
+     "Reu\u00df",
+     "M."
+    ]
+   ],
+   "volume": "30",
+   "issue": "1",
+   "page": "332-344",
+   "article_number": null,
+   "publisher": "Wiley",
+   "type": "journal-article",
+   "reference_count": 41,
+   "doi": "10.1002/jctb.503300140",
+   "url": "https://doi.org/10.1002/jctb.503300140"
+  },
+  "crossref_ok": true,
+  "openalex": {
+   "cited_by": 190,
+   "oa_status": "closed",
+   "type": "article",
+   "year": 1980
+  },
+  "flags": []
+ },
+ {
+  "id": "B2",
+  "group": "A. Foundational mechanistic models",
+  "label": "Menezes et al., pilot-plant penicillin-G fed-batch modelling",
+  "doi": "10.1002/jctb.280610207",
+  "expected_year": 1994,
+  "expected_first": "Menezes",
+  "crossref": {
+   "title": "Mathematical modelling of industrial pilot\u2010plant penicillin\u2010G fed\u2010batch fermentations",
+   "container": "Journal of Chemical Technology &amp; Biotechnology",
+   "year": 1994,
+   "first_author": "Menezes",
+   "authors": [
+    [
+     "Menezes",
+     "Jos\u00e9 C."
+    ],
+    [
+     "Alves",
+     "Sebasti\u00e3o S."
+    ],
+    [
+     "Lemos",
+     "Jo\u00e3o M."
+    ],
+    [
+     "de Azevedo",
+     "Sebasti\u00e3o Feyo"
+    ]
+   ],
+   "volume": "61",
+   "issue": "2",
+   "page": "123-138",
+   "article_number": null,
+   "publisher": "Wiley",
+   "type": "journal-article",
+   "reference_count": 44,
+   "doi": "10.1002/jctb.280610207",
+   "url": "https://doi.org/10.1002/jctb.280610207"
+  },
+  "crossref_ok": true,
+  "openalex": {
+   "cited_by": 52,
+   "oa_status": "closed",
+   "type": "article",
+   "year": 1994
+  },
+  "pubmed": {
+   "title": "Mathematical modelling of industrial pilot-plant penicillin-G fed-batch fermentations.",
+   "year": "1994 Oct",
+   "source": "J Chem Technol Biotechnol"
+  },
+  "flags": [
+   "TITLE-LOW-MATCH:0.22"
+  ]
+ },
+ {
+  "id": "B3",
+  "group": "A. Foundational mechanistic models",
+  "label": "Zangirolami et al., morphologically structured model",
+  "doi": "10.1002/(SICI)1097-0290(19971220)56:6%3C593::AID-BIT1%3E3.0.CO;2-I",
+  "expected_year": 1997,
+  "expected_first": "Zangirolami",
+  "crossref_ok": false,
+  "crossref_error": "HTTP Error 404: Not Found",
+  "pubmed": {
+   "title": "Simulation of penicillin production in fed-batch cultivations using a morphologically structured model.",
+   "year": "1997 Dec 20",
+   "source": "Biotechnol Bioeng"
+  },
+  "flags": [
+   "CROSSREF-MISS"
+  ]
+ },
+ {
+  "id": "B4",
+  "group": "A. Foundational mechanistic models",
+  "label": "Birol, Undey & Cinar, modular simulation package",
+  "doi": "10.1016/S0098-1354(02)00127-8",
+  "expected_year": 2002,
+  "expected_first": "Birol",
+  "crossref": {
+   "title": "A modular simulation package for fed-batch fermentation: penicillin production",
+   "container": "Computers &amp; Chemical Engineering",
+   "year": 2002,
+   "first_author": "Birol",
+   "authors": [
+    [
+     "Birol",
+     "G\u00fclnur"
+    ],
+    [
+     "\u00dcndey",
+     "Cenk"
+    ],
+    [
+     "\u00c7inar",
+     "Ali"
+    ]
+   ],
+   "volume": "26",
+   "issue": "11",
+   "page": "1553-1565",
+   "article_number": null,
+   "publisher": "Elsevier BV",
+   "type": "journal-article",
+   "reference_count": 24,
+   "doi": "10.1016/s0098-1354(02)00127-8",
+   "url": "https://doi.org/10.1016/s0098-1354(02)00127-8"
+  },
+  "crossref_ok": true,
+  "openalex": {
+   "cited_by": 658,
+   "oa_status": "closed",
+   "type": "article",
+   "year": 2002
+  },
+  "flags": [
+   "TITLE-LOW-MATCH:0.33"
+  ]
+ },
+ {
+  "id": "B5",
+  "group": "A. Foundational mechanistic models",
+  "label": "Parameter adaptive control of fed-batch penicillin fermentation (1985 IFAC)",
+  "doi": "10.1016/S1474-6670(17)59895-X",
+  "expected_year": 1985,
+  "expected_first": null,
+  "crossref": {
+   "title": "Parameter Adaptive Control of the Fed-Batch Penicillin Fermentation",
+   "container": "IFAC Proceedings Volumes",
+   "year": 1985,
+   "first_author": "Montague",
+   "authors": [
+    [
+     "Montague",
+     "G.A."
+    ],
+    [
+     "Morris",
+     "A.J."
+    ],
+    [
+     "Wright",
+     "A.R."
+    ],
+    [
+     "Aynsley",
+     "M."
+    ],
+    [
+     "Ward",
+     "A."
+    ]
+   ],
+   "volume": "18",
+   "issue": "17",
+   "page": "69-74",
+   "article_number": null,
+   "publisher": "Elsevier BV",
+   "type": "journal-article",
+   "reference_count": 12,
+   "doi": "10.1016/s1474-6670(17)59895-x",
+   "url": "https://doi.org/10.1016/s1474-6670(17)59895-x"
+  },
+  "crossref_ok": true,
+  "openalex": {
+   "cited_by": 11,
+   "oa_status": "closed",
+   "type": "conference-paper",
+   "year": 1985
+  },
+  "flags": []
+ },
+ {
+  "id": "B6",
+  "group": "A. Foundational mechanistic models",
+  "label": "Goldrick et al. 2015, industrial-scale fed-batch fermentation simulation",
+  "doi": "10.1016/j.jbiotec.2014.10.029",
+  "expected_year": 2015,
+  "expected_first": "Goldrick",
+  "crossref": {
+   "title": "The development of an industrial-scale fed-batch fermentation simulation",
+   "container": "Journal of Biotechnology",
+   "year": 2015,
+   "first_author": "Goldrick",
+   "authors": [
+    [
+     "Goldrick",
+     "Stephen"
+    ],
+    [
+     "\u015etefan",
+     "Andrei"
+    ],
+    [
+     "Lovett",
+     "David"
+    ],
+    [
+     "Montague",
+     "Gary"
+    ],
+    [
+     "Lennox",
+     "Barry"
+    ]
+   ],
+   "volume": "193",
+   "issue": null,
+   "page": "70-82",
+   "article_number": null,
+   "publisher": "Elsevier BV",
+   "type": "journal-article",
+   "reference_count": 57,
+   "doi": "10.1016/j.jbiotec.2014.10.029",
+   "url": "https://doi.org/10.1016/j.jbiotec.2014.10.029"
+  },
+  "crossref_ok": true,
+  "openalex": {
+   "cited_by": 143,
+   "oa_status": "green",
+   "type": "article",
+   "year": 2014
+  },
+  "pubmed": {
+   "title": "The development of an industrial-scale fed-batch fermentation simulation.",
+   "year": "2015 Jan 10",
+   "source": "J Biotechnol"
+  },
+  "flags": []
+ },
+ {
+  "id": "B7",
+  "group": "B. Monitoring, faults, benchmark data",
+  "label": "Goldrick et al. 2019, IndPenSim benchmark",
+  "doi": "10.1016/j.compchemeng.2019.05.037",
+  "expected_year": 2019,
+  "expected_first": "Goldrick",
+  "crossref": {
+   "title": "Modern day monitoring and control challenges outlined on an industrial-scale benchmark fermentation process",
+   "container": "Computers &amp; Chemical Engineering",
+   "year": 2019,
+   "first_author": "Goldrick",
+   "authors": [
+    [
+     "Goldrick",
+     "Stephen"
+    ],
+    [
+     "Duran-Villalobos",
+     "Carlos A."
+    ],
+    [
+     "Jankauskas",
+     "Karolis"
+    ],
+    [
+     "Lovett",
+     "David"
+    ],
+    [
+     "Farid",
+     "Suzanne S."
+    ],
+    [
+     "Lennox",
+     "Barry"
+    ]
+   ],
+   "volume": "130",
+   "issue": null,
+   "page": "106471",
+   "article_number": "106471",
+   "publisher": "Elsevier BV",
+   "type": "journal-article",
+   "reference_count": 42,
+   "doi": "10.1016/j.compchemeng.2019.05.037",
+   "url": "https://doi.org/10.1016/j.compchemeng.2019.05.037"
+  },
+  "crossref_ok": true,
+  "openalex": {
+   "cited_by": 78,
+   "oa_status": "hybrid",
+   "type": "article",
+   "year": 2019
+  },
+  "flags": []
+ },
+ {
+  "id": "B8",
+  "group": "B. Monitoring, faults, benchmark data",
+  "label": "Metcalfe et al. 2025, MLOps soft sensor",
+  "doi": "10.1016/j.compchemeng.2024.108991",
+  "expected_year": 2025,
+  "expected_first": "Metcalfe",
+  "crossref": {
+   "title": "Towards a machine learning operations (MLOps) soft sensor for real-time predictions in industrial-scale fed-batch fermentation",
+   "container": "Computers &amp; Chemical Engineering",
+   "year": 2025,
+   "first_author": "Metcalfe",
+   "authors": [
+    [
+     "Metcalfe",
+     "Brett"
+    ],
+    [
+     "Acosta-Pavas",
+     "Juan Camilo"
+    ],
+    [
+     "Robles-Rodriguez",
+     "Carlos Eduardo"
+    ],
+    [
+     "Georgakilas",
+     "George K."
+    ],
+    [
+     "Dalamagas",
+     "Theodore"
+    ],
+    [
+     "Aceves-Lara",
+     "Cesar Arturo"
+    ],
+    [
+     "Daboussi",
+     "Fayza"
+    ],
+    [
+     "Koehorst",
+     "Jasper J"
+    ],
+    [
+     "Corrales",
+     "David Camilo"
+    ]
+   ],
+   "volume": "194",
+   "issue": null,
+   "page": "108991",
+   "article_number": "108991",
+   "publisher": "Elsevier BV",
+   "type": "journal-article",
+   "reference_count": 57,
+   "doi": "10.1016/j.compchemeng.2024.108991",
+   "url": "https://doi.org/10.1016/j.compchemeng.2024.108991"
+  },
+  "crossref_ok": true,
+  "openalex": {
+   "cited_by": 40,
+   "oa_status": "bronze",
+   "type": "article",
+   "year": 2024
+  },
+  "flags": [
+   "TITLE-LOW-MATCH:0.27"
+  ]
+ },
+ {
+  "id": "B9",
+  "group": "B. Monitoring, faults, benchmark data",
+  "label": "Zheng et al. 2022, supervised hybrid CNN-LSTM soft sensor",
+  "doi": "10.1021/acsomega.2c01108",
+  "expected_year": 2022,
+  "expected_first": "Zheng",
+  "crossref": {
+   "title": "Nonlinear Dynamic Soft Sensor Development with a Supervised Hybrid CNN-LSTM Network for Industrial Processes",
+   "container": "ACS Omega",
+   "year": 2022,
+   "first_author": "Zheng",
+   "authors": [
+    [
+     "Zheng",
+     "Jiaqi"
+    ],
+    [
+     "Ma",
+     "Lianwei"
+    ],
+    [
+     "Wu",
+     "Yi"
+    ],
+    [
+     "Ye",
+     "Lingjian"
+    ],
+    [
+     "Shen",
+     "Feifan"
+    ]
+   ],
+   "volume": "7",
+   "issue": "19",
+   "page": "16653-16664",
+   "article_number": null,
+   "publisher": "American Chemical Society (ACS)",
+   "type": "journal-article",
+   "reference_count": 42,
+   "doi": "10.1021/acsomega.2c01108",
+   "url": "https://doi.org/10.1021/acsomega.2c01108"
+  },
+  "crossref_ok": true,
+  "openalex": {
+   "cited_by": 44,
+   "oa_status": "gold",
+   "type": "article",
+   "year": 2022
+  },
+  "pubmed": {
+   "title": "Nonlinear Dynamic Soft Sensor Development with a Supervised Hybrid CNN-LSTM Network for Industrial Processes.",
+   "year": "2022 May 17",
+   "source": "ACS Omega"
+  },
+  "flags": [
+   "TITLE-LOW-MATCH:0.21"
+  ]
+ },
+ {
+  "id": "B10",
+  "group": "C. Transferable state-estimation and digital-twin methods",
+  "label": "Hermann & Kremling 2025, PLS plus unscented Kalman filter",
+  "doi": "10.3390/bioengineering12060654",
+  "expected_year": 2025,
+  "expected_first": "Hermann",
+  "crossref": {
+   "title": "A Hybrid Soft Sensor Approach Combining Partial Least-Squares Regression and an Unscented Kalman Filter for State Estimation in Bioprocesses",
+   "container": "Bioengineering",
+   "year": 2025,
+   "first_author": "Hermann",
+   "authors": [
+    [
+     "Hermann",
+     "Lucas"
+    ],
+    [
+     "Kremling",
+     "Andreas"
+    ]
+   ],
+   "volume": "12",
+   "issue": "6",
+   "page": "654",
+   "article_number": null,
+   "publisher": "MDPI AG",
+   "type": "journal-article",
+   "reference_count": 46,
+   "doi": "10.3390/bioengineering12060654",
+   "url": "https://doi.org/10.3390/bioengineering12060654"
+  },
+  "crossref_ok": true,
+  "openalex": {
+   "cited_by": 10,
+   "oa_status": "gold",
+   "type": "article",
+   "year": 2025
+  },
+  "flags": [
+   "TITLE-LOW-MATCH:0.20"
+  ]
+ },
+ {
+  "id": "B11",
+  "group": "C. Transferable state-estimation and digital-twin methods",
+  "label": "Shukla, Nagpal & Vyas 2026, digital twin in food fermentation",
+  "doi": "10.1007/s43393-026-00454-8",
+  "expected_year": 2026,
+  "expected_first": "Shukla",
+  "crossref": {
+   "title": "Opportunities of digital twin in controlling and monitoring microbial processes in food fermentation",
+   "container": "Systems Microbiology and Biomanufacturing",
+   "year": 2026,
+   "first_author": "Shukla",
+   "authors": [
+    [
+     "Shukla",
+     "Krati"
+    ],
+    [
+     "Nagpal",
+     "Sharon"
+    ],
+    [
+     "Vyas",
+     "Ashish"
+    ]
+   ],
+   "volume": "6",
+   "issue": "3",
+   "page": null,
+   "article_number": "56",
+   "publisher": "Springer Science and Business Media LLC",
+   "type": "journal-article",
+   "reference_count": 94,
+   "doi": "10.1007/s43393-026-00454-8",
+   "url": "https://doi.org/10.1007/s43393-026-00454-8"
+  },
+  "crossref_ok": true,
+  "openalex": {
+   "cited_by": 5,
+   "oa_status": "closed",
+   "type": "article",
+   "year": 2026
+  },
+  "flags": [
+   "TITLE-LOW-MATCH:0.25"
+  ]
+ },
+ {
+  "id": "B12",
+  "group": "C. Transferable state-estimation and digital-twin methods",
+  "label": "PRISMA 2020 statement",
+  "doi": "10.1371/journal.pmed.1003583",
+  "expected_year": 2021,
+  "expected_first": "Page",
+  "crossref": {
+   "title": "The PRISMA 2020 statement: An updated guideline for reporting systematic reviews",
+   "container": "PLOS Medicine",
+   "year": 2021,
+   "first_author": "Page",
+   "authors": [
+    [
+     "Page",
+     "Matthew J."
+    ],
+    [
+     "McKenzie",
+     "Joanne E."
+    ],
+    [
+     "Bossuyt",
+     "Patrick M."
+    ],
+    [
+     "Boutron",
+     "Isabelle"
+    ],
+    [
+     "Hoffmann",
+     "Tammy C."
+    ],
+    [
+     "Mulrow",
+     "Cynthia D."
+    ],
+    [
+     "Shamseer",
+     "Larissa"
+    ],
+    [
+     "Tetzlaff",
+     "Jennifer M."
+    ],
+    [
+     "Akl",
+     "Elie A."
+    ],
+    [
+     "Brennan",
+     "Sue E."
+    ],
+    [
+     "Chou",
+     "Roger"
+    ],
+    [
+     "Glanville",
+     "Julie"
+    ],
+    [
+     "Grimshaw",
+     "Jeremy M."
+    ],
+    [
+     "Hr\u00f3bjartsson",
+     "Asbj\u00f8rn"
+    ],
+    [
+     "Lalu",
+     "Manoj M."
+    ],
+    [
+     "Li",
+     "Tianjing"
+    ],
+    [
+     "Loder",
+     "Elizabeth W."
+    ],
+    [
+     "Mayo-Wilson",
+     "Evan"
+    ],
+    [
+     "McDonald",
+     "Steve"
+    ],
+    [
+     "McGuinness",
+     "Luke A."
+    ],
+    [
+     "Stewart",
+     "Lesley A."
+    ],
+    [
+     "Thomas",
+     "James"
+    ],
+    [
+     "Tricco",
+     "Andrea C."
+    ],
+    [
+     "Welch",
+     "Vivian A."
+    ],
+    [
+     "Whiting",
+     "Penny"
+    ],
+    [
+     "Moher",
+     "David"
+    ]
+   ],
+   "volume": "18",
+   "issue": "3",
+   "page": "e1003583",
+   "article_number": null,
+   "publisher": "Public Library of Science (PLoS)",
+   "type": "journal-article",
+   "reference_count": 72,
+   "doi": "10.1371/journal.pmed.1003583",
+   "url": "https://doi.org/10.1371/journal.pmed.1003583"
+  },
+  "crossref_ok": true,
+  "openalex": {
+   "cited_by": 5138,
+   "oa_status": "gold",
+   "type": "review",
+   "year": 2021
+  },
+  "flags": [
+   "TITLE-LOW-MATCH:0.18"
+  ]
+ },
+ {
+  "id": "S1",
+  "group": "Seed corpus (full text in hand)",
+  "label": "Luo et al. 2024, golden batch root cause analysis",
+  "doi": "10.3389/fmtec.2024.1392038",
+  "expected_year": 2024,
+  "expected_first": "Luo",
+  "crossref": {
+   "title": "The golden batch-driven root cause analysis for anomalies in bioreactor fermentation process",
+   "container": "Frontiers in Manufacturing Technology",
+   "year": 2024,
+   "first_author": "Luo",
+   "authors": [
+    [
+     "Luo",
+     "Dennis"
+    ],
+    [
+     "He",
+     "Meiling"
+    ],
+    [
+     "Darko",
+     "Justice"
+    ],
+    [
+     "Ly Seymour",
+     "Fatime"
+    ],
+    [
+     "Maturana",
+     "Francisco"
+    ]
+   ],
+   "volume": "4",
+   "issue": null,
+   "page": null,
+   "article_number": "1392038",
+   "publisher": "Frontiers Media SA",
+   "type": "journal-article",
+   "reference_count": 43,
+   "doi": "10.3389/fmtec.2024.1392038",
+   "url": "https://doi.org/10.3389/fmtec.2024.1392038"
+  },
+  "crossref_ok": true,
+  "openalex": {
+   "cited_by": 1,
+   "oa_status": "gold",
+   "type": "article",
+   "year": 2024
+  },
+  "flags": [
+   "TITLE-LOW-MATCH:0.31"
+  ]
+ },
+ {
+  "id": "S3",
+  "group": "Seed corpus (full text in hand)",
+  "label": "Rashedi et al. 2022, MPC with machine learning",
+  "doi": "10.1016/j.ifacol.2022.07.420",
+  "expected_year": 2022,
+  "expected_first": "Rashedi",
+  "crossref": {
+   "title": "Model Predictive Controller Design For Bioprocesses Based On Machine Learning Algorithms",
+   "container": "IFAC-PapersOnLine",
+   "year": 2022,
+   "first_author": "Rashedi",
+   "authors": [
+    [
+     "Rashedi",
+     "Mohammad"
+    ],
+    [
+     "Khodabandehlou",
+     "Hamid"
+    ],
+    [
+     "Demers",
+     "Matthew"
+    ],
+    [
+     "Wang",
+     "Tony"
+    ],
+    [
+     "Garvin",
+     "Christopher"
+    ]
+   ],
+   "volume": "55",
+   "issue": "7",
+   "page": "45-50",
+   "article_number": null,
+   "publisher": "Elsevier BV",
+   "type": "journal-article",
+   "reference_count": 14,
+   "doi": "10.1016/j.ifacol.2022.07.420",
+   "url": "https://doi.org/10.1016/j.ifacol.2022.07.420"
+  },
+  "crossref_ok": true,
+  "openalex": {
+   "cited_by": 21,
+   "oa_status": "diamond",
+   "type": "article",
+   "year": 2022
+  },
+  "flags": []
+ },
+ {
+  "id": "S4",
+  "group": "Seed corpus (full text in hand)",
+  "label": "Kwon et al. 2024, VAE synthetic time series for soft sensors",
+  "doi": "10.3390/bioengineering11080803",
+  "expected_year": 2024,
+  "expected_first": "Kwon",
+  "crossref": {
+   "title": "Enhancing Fermentation Process Monitoring through Data-Driven Modeling and Synthetic Time Series Generation",
+   "container": "Bioengineering",
+   "year": 2024,
+   "first_author": "Kwon",
+   "authors": [
+    [
+     "Kwon",
+     "Hyun J."
+    ],
+    [
+     "Shiu",
+     "Joseph H."
+    ],
+    [
+     "Yamakawa",
+     "Celina K."
+    ],
+    [
+     "Rivera",
+     "Elmer C."
+    ]
+   ],
+   "volume": "11",
+   "issue": "8",
+   "page": "803",
+   "article_number": null,
+   "publisher": "MDPI AG",
+   "type": "journal-article",
+   "reference_count": 20,
+   "doi": "10.3390/bioengineering11080803",
+   "url": "https://doi.org/10.3390/bioengineering11080803"
+  },
+  "crossref_ok": true,
+  "openalex": {
+   "cited_by": 22,
+   "oa_status": "gold",
+   "type": "article",
+   "year": 2024
+  },
+  "flags": [
+   "TITLE-LOW-MATCH:0.33"
+  ]
+ },
+ {
+  "id": "S5",
+  "group": "Seed corpus (full text in hand)",
+  "label": "Zhu et al. 2020, soft-sensing methods review",
+  "doi": "10.3390/s20061771",
+  "expected_year": 2020,
+  "expected_first": "Zhu",
+  "crossref": {
+   "title": "Modern Soft-Sensing Modeling Methods for Fermentation Processes",
+   "container": "Sensors",
+   "year": 2020,
+   "first_author": "Zhu",
+   "authors": [
+    [
+     "Zhu",
+     "Xianglin"
+    ],
+    [
+     "Rehman",
+     "Khalil Ur"
+    ],
+    [
+     "Wang",
+     "Bo"
+    ],
+    [
+     "Shahzad",
+     "Muhammad"
+    ]
+   ],
+   "volume": "20",
+   "issue": "6",
+   "page": "1771",
+   "article_number": null,
+   "publisher": "MDPI AG",
+   "type": "journal-article",
+   "reference_count": 126,
+   "doi": "10.3390/s20061771",
+   "url": "https://doi.org/10.3390/s20061771"
+  },
+  "crossref_ok": true,
+  "openalex": {
+   "cited_by": 140,
+   "oa_status": "gold",
+   "type": "review",
+   "year": 2020
+  },
+  "flags": [
+   "TITLE-LOW-MATCH:0.29"
+  ]
+ },
+ {
+  "id": "S6",
+  "group": "Seed corpus (full text in hand)",
+  "label": "Mondal et al. 2023, ML bioprocess review",
+  "doi": "10.1016/j.biortech.2022.128523",
+  "expected_year": 2023,
+  "expected_first": "Mondal",
+  "crossref": {
+   "title": "Review on machine learning-based bioprocess optimization, monitoring, and control systems",
+   "container": "Bioresource Technology",
+   "year": 2023,
+   "first_author": "Mondal",
+   "authors": [
+    [
+     "Mondal",
+     "Partha Pratim"
+    ],
+    [
+     "Galodha",
+     "Abhinav"
+    ],
+    [
+     "Verma",
+     "Vishal Kumar"
+    ],
+    [
+     "Singh",
+     "Vijai"
+    ],
+    [
+     "Show",
+     "Pau Loke"
+    ],
+    [
+     "Awasthi",
+     "Mukesh Kumar"
+    ],
+    [
+     "Lall",
+     "Brejesh"
+    ],
+    [
+     "Anees",
+     "Sanya"
+    ],
+    [
+     "Pollmann",
+     "Katrin"
+    ],
+    [
+     "Jain",
+     "Rohan"
+    ]
+   ],
+   "volume": "370",
+   "issue": null,
+   "page": "128523",
+   "article_number": "128523",
+   "publisher": "Elsevier BV",
+   "type": "journal-article",
+   "reference_count": 65,
+   "doi": "10.1016/j.biortech.2022.128523",
+   "url": "https://doi.org/10.1016/j.biortech.2022.128523"
+  },
+  "crossref_ok": true,
+  "openalex": {
+   "cited_by": 177,
+   "oa_status": "closed",
+   "type": "review",
+   "year": 2022
+  },
+  "flags": [
+   "TITLE-LOW-MATCH:0.18"
+  ]
+ },
+ {
+  "id": "S7",
+  "group": "Seed corpus (full text in hand)",
+  "label": "Gil et al. 2026, RL behavior cloning in photobioreactor",
+  "doi": "10.1016/j.engappai.2025.113326",
+  "expected_year": 2026,
+  "expected_first": "Gil",
+  "crossref": {
+   "title": "Reinforcement learning meets bioprocess control through behavior cloning: Real-world deployment in an industrial photobioreactor",
+   "container": "Engineering Applications of Artificial Intelligence",
+   "year": 2026,
+   "first_author": "Gil",
+   "authors": [
+    [
+     "Gil",
+     "Juan D."
+    ],
+    [
+     "Del Rio Chanona",
+     "Ehecatl Antonio"
+    ],
+    [
+     "Guzm\u00e1n",
+     "Jos\u00e9 L."
+    ],
+    [
+     "Berenguel",
+     "Manuel"
+    ]
+   ],
+   "volume": "164",
+   "issue": null,
+   "page": "113326",
+   "article_number": "113326",
+   "publisher": "Elsevier BV",
+   "type": "journal-article",
+   "reference_count": 51,
+   "doi": "10.1016/j.engappai.2025.113326",
+   "url": "https://doi.org/10.1016/j.engappai.2025.113326"
+  },
+  "crossref_ok": true,
+  "openalex": {
+   "cited_by": 12,
+   "oa_status": "hybrid",
+   "type": "article",
+   "year": 2025
+  },
+  "flags": []
+ }
+]
