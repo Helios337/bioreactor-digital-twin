@@ -1,0 +1,9 @@
+{
+  "total_batches": 100,
+  "total_records": 113935,
+  "online_variables": 29,
+  "batch_span_h": 227.7,
+  "offline_samples_per_batch_median": 21,
+  "below_target_count": 33,
+  "fault_batch_count": 10
+}
