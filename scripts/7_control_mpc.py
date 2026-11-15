@@ -37,7 +37,8 @@ MPC_KW = {"N": 5, "wS": 1.0, "wV": 100.0, "lam": 1e-3,
 def main() -> None:
     cfg = Config.from_yaml()
     root = cfg.root
-    out_dir = root / "results" / "phase7"
+    run_name = cfg.control().get("run", "v1")
+    out_dir = root / "results" / "phase7" / run_name
     out_dir.mkdir(parents=True, exist_ok=True)
     params = BajpaiReussParams()
 

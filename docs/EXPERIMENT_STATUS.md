@@ -16,8 +16,8 @@ this environment), **pending** (planned, not started).
 | Phase 3 soft sensor | blocked-not-run | Code present; earlier committed `results/phase3/` reflects a prior local run. |
 | Phase 4 estimated monitoring (causal rerun) | blocked-not-run | Code updated to causal smoothing; rerun needs the dataset. Historical `results/phase4/` is the old centred-smoothing run. |
 | Phase 5 GRU (dense and sparse) | blocked-not-run | Code, config, and tests present; smoke-run on synthetic data only in the agent environment. No real benchmark metric is reported. |
-| Phase 6 rule-based control | blocked-not-run | Code present; earlier committed `results/phase6/` reflects a prior local run. |
-| Phase 7 MPC control | blocked-not-run | Code present; earlier committed `results/phase7/` reflects a prior local run. |
+| Phase 6 rule-based control | executed | Re-run in the agent environment with the non-oracle estimator, written to `results/phase6/v1/` (Bajpai-Reuss simulator, no dataset needed). Historical `results/phase6/` preserved. |
+| Phase 7 MPC control | executed | Re-run in the agent environment with the non-oracle estimator, written to `results/phase7/v1/` (Bajpai-Reuss simulator, no dataset needed). Historical `results/phase7/` preserved. |
 
 ## Data-independent work
 

@@ -34,6 +34,22 @@ def load_json(path: Path):
     return None
 
 
+def latest_run_report(phase_dir: Path, filename: str):
+    """Prefer a versioned run report, falling back to the phase-root file.
+
+    Reruns write to run subdirectories so historical outputs are not
+    overwritten; this picks the most recent run subdirectory.
+    """
+    root_file = phase_dir / filename
+    if not phase_dir.is_dir():
+        return None
+    runs = sorted([p for p in phase_dir.iterdir()
+                   if p.is_dir() and (p / filename).exists()])
+    if runs:
+        return load_json(runs[-1] / filename)
+    return load_json(root_file)
+
+
 st.set_page_config(page_title="Penicillin monitoring-to-control", layout="wide")
 st.title("Fed-batch penicillin monitoring-to-control prototype")
 st.caption("Research prototype. Everything shown here is simulated or recorded "
@@ -55,22 +71,26 @@ with tab_overview:
 
 with tab_monitor:
     st.subheader("Golden-batch CQA monitoring")
-    p4 = load_json(PHASE4 / "monitoring_estimated_report.json")
-    p2 = load_json(PHASE2 / "monitoring_report.json")
+    p4 = latest_run_report(PHASE4, "monitoring_estimated_report.json")
+    p2 = latest_run_report(PHASE2, "monitoring_report.json")
     if p4:
         a, b, c = st.columns(3)
         a.metric("Oracle: detected with lead", f"{p4['oracle_comparison'].get('true_trajectory_with_lead', 'n/a')} / 26")
         b.metric("Estimated: detected with lead", f"{p4['n_below_target_with_lead_over_assay']} / 26")
         c.metric("Estimated trajectory MAE", f"{p4['trajectory_estimation_error_heldout']['mae_g_l']} g/L")
+        # Latest run subdirectory, else phase root.
+        run_dir = sorted([p for p in PHASE4.iterdir() if p.is_dir()])[-1] \
+            if PHASE4.is_dir() and [p for p in PHASE4.iterdir() if p.is_dir()] else PHASE4
+        csv_path = run_dir / "per_batch_monitoring_estimated.csv"
         st.dataframe(
-            pd.read_csv(PHASE4 / "per_batch_monitoring_estimated.csv"),
+            pd.read_csv(csv_path),
             height=320, use_container_width=True)
     elif p2:
         st.json(p2)
 
 with tab_soft:
     st.subheader("Soft-sensor baselines")
-    rep = load_json(PHASE3 / "softsensor_report.json")
+    rep = latest_run_report(PHASE3, "softsensor_report.json")
     if rep:
         rows = []
         for name, blk in rep["results"].items():
@@ -85,9 +105,10 @@ with tab_soft:
 with tab_control:
     st.subheader("Matched control arms")
     col1, col2 = st.columns(2)
-    for col, path, title in ((col1, PHASE6 / "control_report.json", "Rule-based (Phase 6)"),
-                              (col2, PHASE7 / "mpc_report.json", "Constrained MPC (Phase 7)")):
-        rep = load_json(path)
+    for col, path, title in ((col1, PHASE6, "Rule-based (Phase 6)"),
+                              (col2, PHASE7, "Constrained MPC (Phase 7)")):
+        rep = latest_run_report(path, "control_report.json") \
+            if path == PHASE6 else latest_run_report(path, "mpc_report.json")
         if rep:
             with col:
                 st.markdown(f"#### {title}")

@@ -67,6 +67,9 @@ control:
   substrate_max_g_l: 0.3
   volume_min_kg: 70000.0
   volume_max_kg: 110000.0
+  # Versioned run directory name; reruns write under results/phase6|phase7/<run>
+  # so historical results are preserved.
+  run: "v1"
 
 simulator:
   # Bajpai-Reuss parameters loaded from src/bioreactor_monitoring/simulator.py defaults.
