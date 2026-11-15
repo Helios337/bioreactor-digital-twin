@@ -150,9 +150,8 @@ def test_build_windows_never_crosses_batch_boundary():
 
 def test_build_windows_requires_strictly_ordered_timestamps():
     from bioreactor_monitoring.sequence import build_windows
-    import pytest as _pytest
     df = _seq_batches()
     df.loc[3, "time_h"] = df.loc[2, "time_h"]   # duplicate timestamp in batch 1
-    with _pytest.raises(ValueError):
+    with pytest.raises(ValueError):
         build_windows(df, lookback=2, horizon=1,
                       features=["feed_rate_l_h"], target="p_true_g_l")
