@@ -62,10 +62,13 @@ The work is structured in two parallel tracks:
 - `scripts/6_control_rule_based.py` and `7_control_mpc.py` — matched control arms
 - `scripts/8_project_figures.py` — result visualisations
 - `results/phase1/` through `results/phase8/`: JSON reports, CSV tables, PNG plots per phase
+- `results/phase5_gru/`: GRU forecasting run directories (metrics, feature selection, per-batch, loss history; populated after a real run)
+- `scripts/5_gru_forecasting.py`: standalone GRU forecasting experiment (Mode 1 dense target, Mode 2 sparse assay)
 
 ### Additional outputs
 - `eda_results/`: exploratory data analysis (6 PNG graphs, 1 CSV summary, 1 JSON statistics file, readme) — generated from the IndPenSim dataset
-- `docs/REPOSITORY_AUDIT.md`: repository audit notes
+- `docs/PROJECT_COMPLETION_AUDIT.md`: Milestone 1 baseline audit and change plan
+- `docs/METHODOLOGY.md`, `docs/REPRODUCIBILITY.md`, `docs/EXPERIMENT_STATUS.md`, `docs/GRU_METHODS.md`: research documentation
 
 ---
 
@@ -95,7 +98,16 @@ Expected output: archive SHA-256 verified, 100 batches, 113,935 records, 33 belo
 PYTHONPATH=src .venv/bin/python scripts/0_run_all.py
 ```
 
-This executes phases 1–4 sequentially and writes results to `results/`.
+This executes phases 1–4, 6, and 7 sequentially and writes results to `results/`.
+Phase 5 (GRU forecasting) is compute-intensive and needs the optional
+`forecast` extra, so it is run separately (see below).
+
+### Run the GRU forecasting experiment
+
+```bash
+PYTHONPATH=src .venv/bin/python scripts/5_gru_forecasting.py --mode dense
+PYTHONPATH=src .venv/bin/python scripts/5_gru_forecasting.py --mode sparse
+```
 
 ### Launch the dashboard
 
@@ -135,10 +147,12 @@ bioreactor-digital-twin/
 │   ├── preprocess.py         # Schema, labels, splits, assay delay
 │   ├── monitor.py            # Golden-batch deviation monitoring
 │   ├── softsensor.py         # Ridge / Random Forest estimation
+│   ├── sequence.py           # Batch-local sliding-window builder
+│   ├── gru_forecaster.py     # Standalone GRU forecaster + feature selection
 │   ├── simulator.py          # Bajpai-Reuss kinetic model
 │   └── control.py            # Rule-based and MPC controllers
-└── tests/                    # Unit tests (39 pass; covers loader, preprocess,
-                              # monitoring, softsensor, simulator, MPC, config)
+└── tests/                    # Unit tests (49 pass; includes GRU, sequence,
+                              # causality, and controller-observability tests)
 ```
 
 ---
@@ -176,6 +190,12 @@ All results below are from recorded runs on the simulated IndPenSim benchmark. T
   - Estimated trajectory MAE vs true: 2.58 g/L (held-out)
   - Oracle comparison: 25/26 below-target batches detected with true trajectory; 21/26 with estimated trajectory
   - Estimated trajectory retains useful early-warning capability compared to the oracle, but with reduced lead-time reliability
+- IMPORTANT: the recorded Phase 4 results used a centred (non-causal) smoother. The code now uses causal (past-only) smoothing; the causal rerun is pending the dataset and will be written to a new run directory. Do not quote the Phase 4 lead times as causal before that rerun.
+
+### GRU forecasting (Phase 5)
+- Standalone experiment (does not depend on dashboard, monitoring, golden-batch logic, or control).
+- Two separate modes with separate reports: Mode 1 dense simulated-state target (`p_true_g_l`), Mode 2 sparse offline-assay target (`p_offline_g_l`).
+- Status: implemented, code and tests present, smoke-run on synthetic data only. **No real benchmark metrics are reported yet.** The real run requires the IndPenSim dataset and the `forecast` extra; see `docs/GRU_METHODS.md` and `docs/EXPERIMENT_STATUS.md`.
 
 ### Control arms (Phase 6 and 7)
 - Rule-based feed controller and constrained nonlinear MPC implemented using the same simulator seed (seed 7) and initial conditions
@@ -204,7 +224,7 @@ Specific boundaries observed:
 - The phase-segmentation method (`segment_phases()`) is an OUR-based heuristic. It is exploratory and not validated against expert-labelled phase annotations.
 - The control arms (Phase 6 and 7) operate on the Bajpai-Reuss simulator. They are matched experimental comparisons, not validated industrial control systems.
 - The dashboard is read-only. No actuator commands are issued to any physical bioreactor.
-- Test counts (e.g., 10/10 data-layer tests, 39/39 full suite) refer to implementation verification, not model accuracy or control performance validation.
+- Test counts (e.g., 49/49 full suite) refer to implementation verification, not model accuracy or control performance validation.
 
 ---
 
@@ -223,6 +243,8 @@ Specific boundaries observed:
 - Each phase writes JSON reports with configuration snapshot, metric definitions and exclusion notes
 - Scripts must not overwrite historical results without preserving them; use `results/` subdirectories by phase
 - The `.venv/` environment is pinned via `pyproject.toml`; install with `pip install -e .`
+- The GRU experiment uses an optional `forecast` extra (torch, xgboost); it is not required by the base monitoring workflow or the full pipeline orchestrator.
+- Records CASUAL status: the Phase 4 causal rerun and the Phase 5 GRU run are pending the dataset. See `docs/EXPERIMENT_STATUS.md`.
 
 ---
 
