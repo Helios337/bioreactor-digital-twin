@@ -92,14 +92,6 @@ def test_substrate_pi_respects_volume_limit():
     meas = Measurement(S=0.05, X=10.0, P=5.0, V=131.0)
     f = policy(1.0, np.array([10.0, 0.05, 5.0, 131.0]), meas)
     assert f == 0.0
-    policy = SubstratePI(Sref=0.05, Kp=20.0)
-    meas = Measurement(S=0.02, X=10.0, P=5.0, V=100.0)
-    f = policy(1.0, np.array([10.0, 0.02, 5.0, 100.0]), meas)
-def test_substrate_pi_respects_volume_limit():
-    policy = SubstratePI(Sref=0.05, v_limit=130.0)
-    meas = Measurement(S=0.05, X=10.0, P=5.0, V=131.0)
-    f = policy(1.0, np.array([10.0, 0.05, 5.0, 131.0]), meas)
-    assert f == 0.0
 
 
 def test_substrate_pi_uses_measured_substrate_only():
