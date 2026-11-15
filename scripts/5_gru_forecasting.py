@@ -32,7 +32,11 @@ import numpy as np
 import pandas as pd
 
 from bioreactor_monitoring.config import Config
-from bioreactor_monitoring.gru_forecaster import train_forecaster, predict
+from bioreactor_monitoring.gru_forecaster import (  # noqa: F401
+    predict,
+    select_features,
+    train_forecaster,
+)
 from bioreactor_monitoring.preprocess import (
     BATCH,
     BELOW_TARGET,
@@ -116,6 +120,14 @@ def main() -> None:
     val_rows = val if args.mode == "dense" else val[val[target].notna()]
     test_rows = test if args.mode == "dense" else test[test[target].notna()]
 
+    # Leakage-safe grouped feature selection on the training batches only.
+    fs = select_features(
+        fit_rows, features, target,
+        seed=int(gc.get("seed", 0)),
+        model_kind=str(gc.get("feature_selector", "random_forest")),
+        n_splits=int(gc.get("feature_folds", 5)),
+    )
+
     X_tr, y_tr, _ = build_windows(fit_rows, gc.get("lookback", 24), gc.get("horizon", 12),
                                   features, target)
     X_va, y_va, _ = build_windows(val_rows, gc.get("lookback", 24), gc.get("horizon", 12),
@@ -163,6 +175,7 @@ def main() -> None:
         "mode": args.mode,
         "target": str(target),
         "features": features,
+        "feature_selection": fs,
         "lookback": gc.get("lookback", 24),
         "horizon": gc.get("horizon", 12),
         "seed": gc.get("seed", 0),

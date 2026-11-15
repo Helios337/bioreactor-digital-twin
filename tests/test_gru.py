@@ -71,3 +71,23 @@ def test_dropout_only_allowed_between_layers():
     m2 = GRUForecaster(n_features=3, hidden_size=8, num_layers=2, dropout=0.2)
     assert m1.gru.num_layers == 1
     assert m2.gru.num_layers == 2
+
+
+def test_select_features_ranks_driver_highest():
+    from bioreactor_monitoring.gru_forecaster import select_features
+    rng = np.random.default_rng(0)
+    n = 120
+    driver = rng.normal(0, 1, n)
+    noise_a = rng.normal(0, 1, n)
+    noise_b = rng.normal(0, 1, n)
+    df = pd.DataFrame({
+        "batch": np.repeat(np.arange(1, 5), 30),
+        "feed_rate_l_h": driver,
+        "agitator_rpm": noise_a,
+        "temperature_k": noise_b,
+        "p_true_g_l": 3.0 * driver + 0.1 * noise_a,
+    })
+    fs = select_features(df, ["feed_rate_l_h", "agitator_rpm", "temperature_k"],
+                         "p_true_g_l", seed=0, n_splits=4)
+    assert fs["ranking"][0] == "feed_rate_l_h"
+    assert fs["folds"] == 4

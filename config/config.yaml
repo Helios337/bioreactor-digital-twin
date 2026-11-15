@@ -46,6 +46,8 @@ gru_forecasting:
   grad_clip: 1.0
   patience: 8
   seed: 0
+  feature_selector: "random_forest"   # "xgboost" if installed, or random_forest
+  feature_folds: 5
   run_dir: results/phase5_gru
 
 monitoring:

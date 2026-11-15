@@ -145,3 +145,57 @@ def predict(model: nn.Module, X: np.ndarray, device: str | None = None) -> np.nd
     with torch.no_grad():
         out = model(Xt)
     return out.detach().cpu().numpy()
+
+
+def select_features(grouped_df: pd.DataFrame, candidate_features: list[str],
+                    target: str, seed: int = 0,
+                    model_kind: str = "random_forest",
+                    n_splits: int = 5) -> dict:
+    """Leakage-safe grouped feature selection on training batches.
+
+    Fits a Random Forest (or XGBoost) inside GroupKFold over batches, so no
+    window or batch leaks between folds, and averages feature importances.
+    ``grouped_df`` must carry ``batch`` and the target at the labelled rows.
+    XGBoost is used only when requested and importable; otherwise the operation
+    falls back to Random Forest and records that substitution explicitly rather
+    than silently.
+    """
+    import numpy as np
+    import pandas as pd
+    from sklearn.model_selection import GroupKFold
+    from sklearn.ensemble import RandomForestRegressor
+
+    feats = [f for f in candidate_features if f in grouped_df.columns]
+    X = grouped_df[feats].to_numpy(dtype=float)
+    y = grouped_df[target].to_numpy(dtype=float)
+    groups = grouped_df["batch"].to_numpy()
+    n_splits = min(n_splits, len(set(groups)))
+    importances = np.zeros(len(feats))
+    folds = 0
+    for tr_idx, va_idx in GroupKFold(n_splits=n_splits).split(X, y, groups):
+        if model_kind == "xgboost":
+            try:
+                from xgboost import XGBRegressor
+                model = XGBRegressor(n_estimators=100, max_depth=3,
+                                     random_state=seed, n_jobs=-1)
+                used = "xgboost"
+            except ImportError:
+                model = RandomForestRegressor(n_estimators=300, random_state=seed,
+                                              n_jobs=-1)
+                used = f"random_forest_fallback_for_{model_kind}"
+        else:
+            model = RandomForestRegressor(n_estimators=300, random_state=seed,
+                                          n_jobs=-1)
+            used = "random_forest"
+        model.fit(X[tr_idx], y[tr_idx])
+        importances += model.feature_importances_
+        folds += 1
+    importances /= max(folds, 1)
+    order = np.argsort(importances)[::-1]
+    return {
+        "model": used,
+        "importance": {feats[i]: round(float(importances[i]), 5) for i in order},
+        "ranking": [feats[i] for i in order],
+        "folds": folds,
+        "candidate_features": feats,
+    }
