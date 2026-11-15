@@ -151,20 +151,32 @@ class NonLinearMPC:
     Fmax: float = 0.3
     v_limit: float = 130.0
     dt_h: float = 1.0
+    # Declared non-oracle estimator seed used when a measurement component is
+    # missing and no prior estimate is held. Model initial conditions are model
+    # parameters, not hidden true state, so seeding with them is not oracle leak.
+    initial_state: np.ndarray | None = None
 
     def __post_init__(self):
         self._last_u: np.ndarray | None = None
+        # Declared state estimator: hold-last-value. The controller never reads
+        # the true state y_true; it only uses the measurements the sensor
+        # exposes, holding the most recent complete estimate.
+        self._last_state: np.ndarray | None = (
+            np.asarray(self.initial_state, dtype=float) if self.initial_state is not None else None
+        )
 
     def __call__(self, t: float, y_true: np.ndarray, measurement: Measurement) -> float:
         from scipy.optimize import minimize
 
-        state = np.array([
-            measurement.X if measurement.X is not None else y_true[0],
-            measurement.S if measurement.S is not None else y_true[1],
-            measurement.P if measurement.P is not None else y_true[2],
-            measurement.V if measurement.V is not None else y_true[3],
+        obs = np.array([
+            measurement.X, measurement.S, measurement.P, measurement.V,
         ], dtype=float)
-        state = np.maximum(np.nan_to_num(state, nan=1e-6, posinf=1e6), 0.0)
+        # Merge the measured components into the held estimate. Missing
+        # components keep their held value; we never read y_true.
+        held = self._last_state if self._last_state is not None else np.full(4, np.nan)
+        merged = np.where(np.isfinite(obs), obs, held)
+        self._last_state = np.maximum(np.nan_to_num(merged, nan=1e-6, posinf=1e6), 0.0)
+        state = self._last_state.copy()
         dt = self.dt_h
 
         def rollout(u: np.ndarray) -> np.ndarray:

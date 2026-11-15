@@ -63,7 +63,8 @@ def fresh_sensor(kind: str, sigma: float, seed: int):
 def main() -> None:
     cfg = Config.from_yaml()
     root = cfg.root
-    out_dir = root / "results" / "phase6"
+    run_name = cfg.control().get("run", "v1")
+    out_dir = root / "results" / "phase6" / run_name
     out_dir.mkdir(parents=True, exist_ok=True)
     params = BajpaiReussParams()
 

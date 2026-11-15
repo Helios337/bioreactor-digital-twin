@@ -20,6 +20,10 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest", "streamlit"]
+# Heavy / optional model stack used only by the standalone GRU experiment and
+# its optional XGBoost feature selection. Not required by the base monitoring
+# workflow or the full pipeline orchestrator.
+forecast = ["torch", "xgboost"]
 
 [tool.setuptools.packages.find]
 where = ["src"]

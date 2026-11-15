@@ -29,6 +29,27 @@ softsensor:
   cv_folds: 5
   metrics: ["mae", "rmse", "r2"]
 
+# GRU penicillin forecasting (Workstream C). These are project-selected
+# defaults, not claimed published values, until the 2026 GRU paper methods are
+# verified against the accessible full text.
+gru_forecasting:
+  mode: "dense"             # "dense" = simulate-state target (primary), "sparse" = assay target
+  lookback: 24
+  horizon: 12
+  hidden_size: 64
+  num_layers: 1
+  dropout: 0.0
+  batch_size: 64
+  epochs: 50
+  lr: 0.001
+  weight_decay: 1e-5
+  grad_clip: 1.0
+  patience: 8
+  seed: 0
+  feature_selector: "random_forest"   # "xgboost" if installed, or random_forest
+  feature_folds: 5
+  run_dir: results/phase5_gru
+
 monitoring:
   golden_band_k: 3.0
   deviation_threshold_pct: 30.0
@@ -46,6 +67,9 @@ control:
   substrate_max_g_l: 0.3
   volume_min_kg: 70000.0
   volume_max_kg: 110000.0
+  # Versioned run directory name; reruns write under results/phase6|phase7/<run>
+  # so historical results are preserved.
+  run: "v1"
 
 simulator:
   # Bajpai-Reuss parameters loaded from src/bioreactor_monitoring/simulator.py defaults.

@@ -103,3 +103,55 @@ def test_split_batches_deterministic():
     a, _ = split_batches(np.arange(1, 101), seed=7, test_fraction=0.2)
     b, _ = split_batches(np.arange(1, 101), seed=7, test_fraction=0.2)
     assert list(a) == list(b)
+
+
+def _seq_batches():
+    """Two batches with strictly increasing timestamps and a target column."""
+    frames = []
+    for b in (1, 2):
+        t = 0.2 + 0.2 * np.arange(12)
+        frames.append(pd.DataFrame({
+            BATCH: b, "time_h": t,
+            "feed_rate_l_h": 1.0 + 0.1 * np.arange(12),
+            "p_true_g_l": 2.0 + 0.2 * np.arange(12),
+        }))
+    return pd.concat(frames, ignore_index=True)
+
+
+def test_build_windows_predicts_future_target():
+    from bioreactor_monitoring.sequence import build_windows
+    df = _seq_batches()
+    X, y, meta = build_windows(df, lookback=3, horizon=2,
+                               features=["feed_rate_l_h"], target="p_true_g_l")
+    # In batches of 12 rows: last_start = 12-3-2 = 7, so 8 windows per batch.
+    assert X.shape == (16, 3, 1)
+    assert len(y) == 16
+    # First window of batch 1 uses rows 0,1,2 and predicts p at row 2+2=4.
+    assert X[0, -1, 0] == pytest.approx(1.0 + 0.1 * 2)   # feed at t index 2
+    assert y[0] == pytest.approx(2.0 + 0.2 * 4)          # P at t index 4
+
+
+def test_build_windows_never_crosses_batch_boundary():
+    from bioreactor_monitoring.sequence import build_windows
+    df = _seq_batches()
+    X, y, meta = build_windows(df, lookback=3, horizon=2,
+                               features=["feed_rate_l_h"], target="p_true_g_l")
+    starts = meta.groupby(BATCH)["time_h"].min()
+    # Each window's target row stays within its own batch, never the next.
+    target_times = meta["target_time_h"].to_numpy()
+    for b in (1, 2):
+        m = meta[meta[BATCH] == b]
+        assert (m["target_time_h"].to_numpy() <= m["time_h"].max() + 2.2 + 1e-9).all()
+    # The first window of batch 2 never borrows rows 0..2 of batch 1.
+    b2_meta = meta[meta[BATCH] == 2]
+    assert len(b2_meta) == 8
+    assert b2_meta.time_h.iloc[0] == pytest.approx(0.2 + 0.2 * 2)
+
+
+def test_build_windows_requires_strictly_ordered_timestamps():
+    from bioreactor_monitoring.sequence import build_windows
+    df = _seq_batches()
+    df.loc[3, "time_h"] = df.loc[2, "time_h"]   # duplicate timestamp in batch 1
+    with pytest.raises(ValueError):
+        build_windows(df, lookback=2, horizon=1,
+                      features=["feed_rate_l_h"], target="p_true_g_l")

@@ -9,10 +9,40 @@ import pytest
 from bioreactor_monitoring.monitor import (
     alarm_events,
     build_golden_bands,
+    causal_rolling_median,
     deviation_series,
     reference_grid,
     select_monitor_variables,
 )
+
+
+def test_causal_rolling_median_ignores_future():
+    """Changing future samples must not change values at earlier timestamps.
+
+    This is the causal (trailing) property required for online-style monitoring.
+    """
+    base = np.arange(10, dtype=float)
+    future = pd.Series(np.where(np.arange(10) >= 5, 999.0, base))  # perturb t>=5
+    w = 5
+    a = causal_rolling_median(pd.Series(base), w).to_numpy()
+    b = causal_rolling_median(future, w).to_numpy()
+    # At every past index the smoothed value is the same whether the future is
+    # benign or an extreme spike, because only past data enters each window.
+    assert np.allclose(a[:5], b[:5])
+    # A trailing smoother must never move a value left of its centre window end.
+    for prefix_end in range(w, len(a)):
+        assert a[prefix_end] <= max(base[prefix_end - w + 1:prefix_end + 1])
+
+
+def test_centred_rolling_is_not_causal():
+    """Guard: a centred median is NOT causal; we must not reintroduce it."""
+    w = 5
+    base = pd.Series(np.arange(10, dtype=float))
+    centred = base.rolling(w, center=True, min_periods=1).median().to_numpy()
+    future = pd.Series(np.where(np.arange(10) >= 5, 999.0, np.arange(10, dtype=float)))
+    bout = centred.copy()
+    c = future.rolling(w, center=True, min_periods=1).median().to_numpy()
+    assert not np.array_equal(bout, c)
 
 
 def _healthy_batches(n_batches=5, n_points=50):

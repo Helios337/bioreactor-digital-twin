@@ -14,6 +14,15 @@ import pandas as pd
 GRID_STEP_H = 0.2
 
 
+def causal_rolling_median(series: pd.Series, window: int) -> pd.Series:
+    """Trailing (past-only) median of ``series`` over the given window.
+
+    ``center=False`` keeps each smoothed value dependent only on samples at or
+    before its index, so online/lead-time results never use future data.
+    """
+    return series.rolling(window, center=False, min_periods=1).median()
+
+
 def reference_grid(train_batches: pd.DataFrame, time_col: str = "time_h",
                    max_h: float | None = None, step_h: float = GRID_STEP_H) -> np.ndarray:
     """Interpolation grid for building golden bands.
