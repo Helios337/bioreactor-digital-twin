@@ -9,6 +9,11 @@ Steps:
   6  rule-based control arms
   7  constrained MPC arms
 
+The GRU forecasting experiment (phase 5) is NOT run here: it needs the optional
+torch/xgboost stack and is compute-intensive, so it is invoked separately via
+scripts/5_gru_forecasting.py. Project figures (script 8) are also not part of
+this sequential pipeline; run it explicitly when you regenerate figures.
+
 Each step writes its report under results/ and prints progress. The dashboard
 then reads these results.
 

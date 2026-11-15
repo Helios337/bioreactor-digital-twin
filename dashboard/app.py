@@ -22,6 +22,10 @@ PHASE4 = ROOT / "results" / "phase4"
 PHASE6 = ROOT / "results" / "phase6"
 PHASE7 = ROOT / "results" / "phase7"
 SPLITS = ROOT / "results" / "splits.json"
+PHASE5 = ROOT / "results" / "phase5_gru"
+GRU_RUNS = sorted(
+    [p for p in PHASE5.iterdir() if p.is_dir() and (p / "metrics.json").exists()]
+) if PHASE5.exists() else []
 
 
 def load_json(path: Path):
@@ -35,8 +39,8 @@ st.title("Fed-batch penicillin monitoring-to-control prototype")
 st.caption("Research prototype. Everything shown here is simulated or recorded "
            "simulated benchmark data; no physical plant is connected.")
 
-tab_overview, tab_monitor, tab_soft, tab_control = st.tabs(
-    ["Overview", "Monitoring", "Soft sensor", "Control"])
+tab_overview, tab_monitor, tab_soft, tab_control, tab_forecast = st.tabs(
+    ["Overview", "Monitoring", "Soft sensor", "Control", "Forecasting (GRU)"])
 
 with tab_overview:
     splits = load_json(SPLITS)
@@ -90,3 +94,21 @@ with tab_control:
                 st.dataframe(pd.DataFrame(rep["by_arm"]), use_container_width=True)
                 st.caption("All arms share seeds, initial conditions, and limits. "
                            "Sensing layer differs only.")
+
+with tab_forecast:
+    st.subheader("GRU penicillin forecasting (Workstream C)")
+    if GRU_RUNS:
+        st.caption("Runs below are from recorded phase5_gru runs. Metrics are on "
+                   "the original target scale in g/L; do not compare scaled MSE.")
+        for run_dir in GRU_RUNS:
+            rep = load_json(run_dir / "metrics.json")
+            if not rep:
+                continue
+            st.markdown(f"#### {run_dir.name}")
+            st.dataframe(pd.DataFrame(rep["metrics"]).T, use_container_width=True)
+            st.caption(f"mode={rep['mode']}, target={rep['target']}, "
+                       f"lookback={rep['lookback']}, horizon={rep['horizon']}")
+    else:
+        st.info("No GRU run recorded yet. This section is planned but not yet run. "
+                "Complete the experiment with: "
+                "`PYTHONPATH=src .venv/bin/python scripts/5_gru_forecasting.py --mode dense`.")

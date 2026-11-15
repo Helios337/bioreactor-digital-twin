@@ -54,7 +54,9 @@ def main() -> None:
             rows.append(_row(kind, sigma, seed, res))
     # delayed assay arm
     for seed in SEEDS:
-        policy = NonLinearMPC(params=params, **MPC_KW)
+        policy = NonLinearMPC(params=params, **MPC_KW,
+                              initial_state=np.array([params.X0, params.S0,
+                                                      params.P0, params.V0]))
         sensor = DelayedAssaySensor(interval_h=12.0, delay_h=4.0, seed=seed, noise=0.01)
         res = run_batch(policy, sensor, params, seed=seed,
                         process_sigma=PROCESS_SIGMA)

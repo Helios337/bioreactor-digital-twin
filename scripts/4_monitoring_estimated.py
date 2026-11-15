@@ -21,6 +21,7 @@ from bioreactor_monitoring.config import Config
 from bioreactor_monitoring.monitor import (
     alarm_events,
     build_golden_bands,
+    causal_rolling_median,
     deviation_series,
 )
 from bioreactor_monitoring.preprocess import (
@@ -72,7 +73,10 @@ def oracle_from_phase2(root: Path) -> dict:
 def main() -> None:
     cfg = Config.from_yaml()
     root = cfg.root
-    out_dir = root / "results" / "phase4"
+    # Causal smoothing only: a centred window can use future samples. Write to a
+    # versioned run directory so historical phase4 outputs are not overwritten.
+    run_name = cfg.monitoring().get("estimated_run", "causal_v1")
+    out_dir = root / "results" / "phase4" / run_name
     out_dir.mkdir(parents=True, exist_ok=True)
 
     df = pd.read_parquet(root / "data" / "processed" / "process_named.parquet")
@@ -90,12 +94,14 @@ def main() -> None:
         model_name = "random_forest"
 
     traj = predict_trajectories(train_df, eval_df, SOFT_SENSOR_FEATURES, model_name, seed)
-    # Light smoothing to reduce single-sample flicker in online predictions.
+    # Light trailing (past-only) smoothing to reduce single-sample flicker in
+    # online predictions. center=False keeps the value at t dependent only on
+    # data available at or before t, so online/lead-time claims stay causal.
     win = cfg.monitoring().get("estimate_smooth_h", 1.0)
     step = 0.2
     traj["p_est_smooth"] = (
         traj.groupby(BATCH)["p_est"].transform(
-            lambda x: x.rolling(int(round(win / step)), center=True, min_periods=1).median()
+            lambda x: causal_rolling_median(x, int(round(win / step)))
         )
     )
     traj = traj.merge(

@@ -218,3 +218,30 @@ repairs and tests land before any new model code.
 - Audit report exists: yes (this file).
 - No files destructively modified: commits on the new branch only.
 - Current tests and known issues recorded: yes above.
+
+## 8. Progress log
+
+Milestone 1 (baseline audit) is complete. Milestone 2 (correctness and
+reproducibility repairs) is complete in this branch as of 2026-11-16:
+
+- Phase 4 smoothing is now causal via `causal_rolling_median()`; the rerun
+  writes to `results/phase4/<run>/` and is blocked only by missing data.
+- `NonLinearMPC` no longer reads `y_true` for missing components; it uses a
+  declared hold-last-value estimator (optionally seeded with model initial
+  conditions) and raises a clear error when no state is available.
+- Control reproducibility script `scripts/7_control_mpc.py` is not in the repo
+  test suite; the observability change is covered by `tests/test_mpc.py`.
+- Added `tests/test_monitor.py::test_causal_rolling_median_ignores_future`,
+  `tests/test_preprocess.py` sequence-boundary tests, and `tests/test_mpc.py`
+  non-oracle observability tests.
+- Added `.github/workflows/ci.yml` running the data-independent suite on
+  Python 3.10/3.11/3.12.
+- Added the standalone GRU component (Workstream C): `src/.../gru_forecaster.py`,
+  `src/.../sequence.py`, `scripts/5_gru_forecasting.py`, `config` GRU section,
+  optional `forecast` extra, and `tests/test_gru.py`. The GRU script was
+  smoke-run on synthetic data (not the real dataset) to prove it executes.
+- Dashboard gained a Forecasting (GRU) tab labelled planned / not yet run.
+
+Data-dependent experiments (inspection, monitoring, soft sensor, estimated
+monitoring, GRU training on the real benchmark) remain "not run" because the
+raw IndPenSim dataset is not present in this environment.
