@@ -54,12 +54,13 @@ def _arrays_to_tensor(x: np.ndarray) -> torch.Tensor:
 
 def train_forecaster(X_train: np.ndarray, y_train: np.ndarray,
                      X_val: np.ndarray, y_val: np.ndarray,
-                     hidden_size: int = 64, num_layers: int = 1,
-                     dropout: float = 0.0, batch_size: int = 64,
-                     epochs: int = 50, lr: float = 1e-3,
+                     hidden_size: int = 32, num_layers: int = 1,
+                     dropout: float = 0.0, batch_size: int = 128,
+                     epochs: int = 20, lr: float = 1e-3,
                      weight_decay: float = 1e-5,
-                     grad_clip: float = 1.0, patience: int = 8,
-                     seed: int = 0, device: str | None = None) -> tuple[nn.Module, dict]:
+                     grad_clip: float = 1.0, patience: int = 5,
+                     seed: int = 0, device: str | None = None,
+                     verbose: bool = True) -> tuple[nn.Module, dict]:
     """Train with Adamax and early stopping on validation loss.
 
     Returns ``(model, history)`` where ``history`` holds per-epoch train/val
@@ -69,6 +70,19 @@ def train_forecaster(X_train: np.ndarray, y_train: np.ndarray,
     """
     if device is None:
         device = "cuda" if torch.cuda.is_available() else "cpu"
+    if len(X_train) == 0 or len(X_val) == 0:
+        raise ValueError("GRU training and validation windows must both be non-empty.")
+    if not np.isfinite(X_train).all() or not np.isfinite(y_train).all():
+        raise ValueError("Training windows contain NaN or infinite values.")
+    if not np.isfinite(X_val).all() or not np.isfinite(y_val).all():
+        raise ValueError("Validation windows contain NaN or infinite values.")
+    if verbose:
+        print(
+            f"\n[GRU] device={device} | train={len(X_train):,} windows | "
+            f"validation={len(X_val):,} windows | features={X_train.shape[2]} | "
+            f"lookback={X_train.shape[1]}",
+            flush=True,
+        )
     torch.manual_seed(seed)
     np.random.seed(seed)
     if device.startswith("cuda"):
@@ -116,9 +130,16 @@ def train_forecaster(X_train: np.ndarray, y_train: np.ndarray,
         with torch.no_grad():
             val_l = float(loss_fn(model(Xv.to(device)), yv.to(device)).item())
 
-        history["epoch"].append(epoch)
+        history["epoch"].append(epoch + 1)
         history["train_loss"].append(train_l)
         history["val_loss"].append(val_l)
+        if verbose:
+            print(
+                f"[GRU] epoch {epoch + 1:02d}/{epochs} | "
+                f"train_loss={train_l:.6f} | val_loss={val_l:.6f} | "
+                f"best_val={min(best_val, val_l):.6f}",
+                flush=True,
+            )
 
         if val_l < best_val - 1e-8:
             best_val = val_l
@@ -132,7 +153,13 @@ def train_forecaster(X_train: np.ndarray, y_train: np.ndarray,
 
     if best_state is not None:
         model.load_state_dict(best_state)
-    return model, {"best_epoch": best_epoch, "best_val_loss": best_val,
+    if verbose:
+        print(
+            f"[GRU] training finished | best_epoch={best_epoch + 1} | "
+            f"best_val_loss={best_val:.6f}",
+            flush=True,
+        )
+    return model, {"best_epoch": best_epoch + 1, "best_val_loss": best_val,
                    "history": history}
 
 
