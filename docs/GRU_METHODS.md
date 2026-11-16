@@ -46,6 +46,28 @@ secondary experiment and is never merged into one metric table.
   grouped validation split are used.
 - Deterministic seed where practical; CPU execution is the default.
 
+## 3. Compact Colab profile and runtime reporting
+
+The default `quick_v1` profile is intended for practical iteration on Colab:
+- 24-step input window and 12-step direct forecast horizon (unchanged).
+- 32 GRU hidden units, batch size 128, at most 20 epochs, patience 5.
+- Feature ranking uses three grouped folds, 60 trees per fold, and at most
+  500 fit rows per batch; the top six ranked online features are used.
+- GRU fitting is capped at 20,000 training windows by a deterministic
+  batch-proportional sample. Validation and test windows are not capped.
+- Input features are standardized using training windows only; targets and
+  reported MAE/RMSE remain on the original g/L scale.
+- Each stage prints progress, and each epoch prints training and validation
+  loss. Outputs are written to a versioned `*_quick_v1` directory with
+  metrics, per-window predictions, and a model checkpoint.
+
+This is a smaller development run intended to give useful preliminary results
+with lower CPU/RAM demand. It does not guarantee a particular R² or error level,
+and its capped training set should be disclosed when reporting results. For a
+larger sensitivity / final run, increase `max_train_windows`, `epochs`,
+`hidden_size`, and feature-selection limits in `config/config.yaml`, then use
+a new `run_label` so previous results are preserved.
+
 ## 3. Causality and leakage safeguards
 
 - A prediction at time `t` uses input data available at or before `t`; the

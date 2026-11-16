@@ -54,12 +54,13 @@ def _arrays_to_tensor(x: np.ndarray) -> torch.Tensor:
 
 def train_forecaster(X_train: np.ndarray, y_train: np.ndarray,
                      X_val: np.ndarray, y_val: np.ndarray,
-                     hidden_size: int = 64, num_layers: int = 1,
-                     dropout: float = 0.0, batch_size: int = 64,
-                     epochs: int = 50, lr: float = 1e-3,
+                     hidden_size: int = 32, num_layers: int = 1,
+                     dropout: float = 0.0, batch_size: int = 128,
+                     epochs: int = 20, lr: float = 1e-3,
                      weight_decay: float = 1e-5,
-                     grad_clip: float = 1.0, patience: int = 8,
-                     seed: int = 0, device: str | None = None) -> tuple[nn.Module, dict]:
+                     grad_clip: float = 1.0, patience: int = 5,
+                     seed: int = 0, device: str | None = None,
+                     verbose: bool = True) -> tuple[nn.Module, dict]:
     """Train with Adamax and early stopping on validation loss.
 
     Returns ``(model, history)`` where ``history`` holds per-epoch train/val
@@ -69,6 +70,19 @@ def train_forecaster(X_train: np.ndarray, y_train: np.ndarray,
     """
     if device is None:
         device = "cuda" if torch.cuda.is_available() else "cpu"
+    if len(X_train) == 0 or len(X_val) == 0:
+        raise ValueError("GRU training and validation windows must both be non-empty.")
+    if not np.isfinite(X_train).all() or not np.isfinite(y_train).all():
+        raise ValueError("Training windows contain NaN or infinite values.")
+    if not np.isfinite(X_val).all() or not np.isfinite(y_val).all():
+        raise ValueError("Validation windows contain NaN or infinite values.")
+    if verbose:
+        print(
+            f"\n[GRU] device={device} | train={len(X_train):,} windows | "
+            f"validation={len(X_val):,} windows | features={X_train.shape[2]} | "
+            f"lookback={X_train.shape[1]}",
+            flush=True,
+        )
     torch.manual_seed(seed)
     np.random.seed(seed)
     if device.startswith("cuda"):
@@ -116,9 +130,16 @@ def train_forecaster(X_train: np.ndarray, y_train: np.ndarray,
         with torch.no_grad():
             val_l = float(loss_fn(model(Xv.to(device)), yv.to(device)).item())
 
-        history["epoch"].append(epoch)
+        history["epoch"].append(epoch + 1)
         history["train_loss"].append(train_l)
         history["val_loss"].append(val_l)
+        if verbose:
+            print(
+                f"[GRU] epoch {epoch + 1:02d}/{epochs} | "
+                f"train_loss={train_l:.6f} | val_loss={val_l:.6f} | "
+                f"best_val={min(best_val, val_l):.6f}",
+                flush=True,
+            )
 
         if val_l < best_val - 1e-8:
             best_val = val_l
@@ -132,7 +153,13 @@ def train_forecaster(X_train: np.ndarray, y_train: np.ndarray,
 
     if best_state is not None:
         model.load_state_dict(best_state)
-    return model, {"best_epoch": best_epoch, "best_val_loss": best_val,
+    if verbose:
+        print(
+            f"[GRU] training finished | best_epoch={best_epoch + 1} | "
+            f"best_val_loss={best_val:.6f}",
+            flush=True,
+        )
+    return model, {"best_epoch": best_epoch + 1, "best_val_loss": best_val,
                    "history": history}
 
 
@@ -150,52 +177,95 @@ def predict(model: nn.Module, X: np.ndarray, device: str | None = None) -> np.nd
 def select_features(grouped_df: pd.DataFrame, candidate_features: list[str],
                     target: str, seed: int = 0,
                     model_kind: str = "random_forest",
-                    n_splits: int = 5) -> dict:
-    """Leakage-safe grouped feature selection on training batches.
+                    n_splits: int = 3, n_estimators: int = 60,
+                    max_rows_per_batch: int = 500,
+                    verbose: bool = True) -> dict:
+    """Rank candidate features cheaply and without cross-batch leakage.
 
-    Fits a Random Forest (or XGBoost) inside GroupKFold over batches, so no
-    window or batch leaks between folds, and averages feature importances.
-    ``grouped_df`` must carry ``batch`` and the target at the labelled rows.
-    XGBoost is used only when requested and importable; otherwise the operation
-    falls back to Random Forest and records that substitution explicitly rather
-    than silently.
+    A bounded, reproducible sample is drawn from each training batch. GroupKFold
+    keeps batches separate across folds. Only training rows are accepted by the
+    caller; validation and test batches must never be supplied here.
     """
-    import numpy as np
-    import pandas as pd
     from sklearn.model_selection import GroupKFold
     from sklearn.ensemble import RandomForestRegressor
 
     feats = [f for f in candidate_features if f in grouped_df.columns]
-    X = grouped_df[feats].to_numpy(dtype=float)
-    y = grouped_df[target].to_numpy(dtype=float)
-    groups = grouped_df["batch"].to_numpy()
-    n_splits = min(n_splits, len(set(groups)))
-    importances = np.zeros(len(feats))
-    folds = 0
-    for tr_idx, va_idx in GroupKFold(n_splits=n_splits).split(X, y, groups):
+    if not feats or target not in grouped_df.columns or "batch" not in grouped_df.columns:
+        raise ValueError("Feature selection is missing features, target, or batch column.")
+
+    sample = grouped_df.dropna(subset=feats + [target, "batch"]).copy()
+    numeric = sample[feats + [target]].to_numpy(dtype=float)
+    sample = sample.loc[np.isfinite(numeric).all(axis=1)].copy()
+
+    # Cap rows per batch so the ranking stage does not dominate the experiment.
+    if max_rows_per_batch > 0:
+        parts = []
+        for _, group in sample.groupby("batch", sort=True):
+            if len(group) > max_rows_per_batch:
+                group = group.sample(n=max_rows_per_batch, random_state=seed)
+            parts.append(group)
+        sample = pd.concat(parts, ignore_index=True) if parts else sample.iloc[:0]
+
+    groups = sample["batch"].to_numpy()
+    unique_groups = np.unique(groups)
+    if len(unique_groups) < 2:
+        raise ValueError("Feature selection requires at least two training batches.")
+    folds_requested = max(2, int(n_splits))
+    folds = min(folds_requested, len(unique_groups))
+    X = sample[feats].to_numpy(dtype=float)
+    y = sample[target].to_numpy(dtype=float)
+    importances = np.zeros(len(feats), dtype=float)
+    used = "random_forest"
+    gkf = GroupKFold(n_splits=folds)
+
+    if verbose:
+        print(
+            f"[Phase 5/Feature selection] {len(sample):,} sampled rows | "
+            f"{len(unique_groups)} batches | {folds} folds | "
+            f"{n_estimators} trees/fold",
+            flush=True,
+        )
+
+    for fold_no, (tr_idx, va_idx) in enumerate(gkf.split(X, y, groups), start=1):
         if model_kind == "xgboost":
             try:
                 from xgboost import XGBRegressor
-                model = XGBRegressor(n_estimators=100, max_depth=3,
-                                     random_state=seed, n_jobs=-1)
+                model = XGBRegressor(
+                    n_estimators=min(100, n_estimators), max_depth=3,
+                    random_state=seed, n_jobs=-1,
+                )
                 used = "xgboost"
             except ImportError:
-                model = RandomForestRegressor(n_estimators=300, random_state=seed,
-                                              n_jobs=-1)
-                used = f"random_forest_fallback_for_{model_kind}"
+                model = RandomForestRegressor(
+                    n_estimators=n_estimators, max_depth=14,
+                    min_samples_leaf=3, max_samples=0.8,
+                    random_state=seed, n_jobs=-1,
+                )
+                used = "random_forest_fallback_for_xgboost"
         else:
-            model = RandomForestRegressor(n_estimators=300, random_state=seed,
-                                          n_jobs=-1)
+            model = RandomForestRegressor(
+                n_estimators=n_estimators, max_depth=14,
+                min_samples_leaf=3, max_samples=0.8,
+                random_state=seed, n_jobs=-1,
+            )
             used = "random_forest"
         model.fit(X[tr_idx], y[tr_idx])
         importances += model.feature_importances_
-        folds += 1
-    importances /= max(folds, 1)
+        if verbose:
+            print(
+                f"[Phase 5/Feature selection] fold {fold_no}/{folds} complete",
+                flush=True,
+            )
+
+    importances /= folds
     order = np.argsort(importances)[::-1]
     return {
         "model": used,
-        "importance": {feats[i]: round(float(importances[i]), 5) for i in order},
+        "importance": {feats[i]: round(float(importances[i]), 6) for i in order},
         "ranking": [feats[i] for i in order],
         "folds": folds,
         "candidate_features": feats,
+        "sample_rows": int(len(sample)),
+        "sampled_batches": int(len(unique_groups)),
+        "trees_per_fold": int(n_estimators),
     }
