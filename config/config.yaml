@@ -33,21 +33,26 @@ softsensor:
 # defaults, not claimed published values, until the 2026 GRU paper methods are
 # verified against the accessible full text.
 gru_forecasting:
-  mode: "dense"             # "dense" = simulate-state target (primary), "sparse" = assay target
-  lookback: 24
-  horizon: 12
-  hidden_size: 64
+  mode: "dense"             # "dense" = simulated-state target (primary), "sparse" = offline assay target
+  lookback: 24              # 4.8 hours of history at 12-minute sampling
+  horizon: 12               # forecast 2.4 hours ahead at 12-minute sampling
+  hidden_size: 32           # compact GRU to reduce CPU/RAM usage
   num_layers: 1
   dropout: 0.0
-  batch_size: 64
-  epochs: 50
+  batch_size: 128
+  epochs: 20                # maximum; early stopping usually ends sooner
   lr: 0.001
   weight_decay: 1e-5
   grad_clip: 1.0
-  patience: 8
+  patience: 5
   seed: 0
-  feature_selector: "random_forest"   # "xgboost" if installed, or random_forest
-  feature_folds: 5
+  feature_selector: "random_forest"
+  feature_folds: 3
+  feature_trees: 60
+  feature_max_rows_per_batch: 500
+  top_k_features: 6
+  max_train_windows: 20000  # stratified-by-batch cap; 0 disables the cap
+  run_label: "quick_v1"     # keeps quick runs separate from previous outputs
   run_dir: results/phase5_gru
 
 monitoring:
